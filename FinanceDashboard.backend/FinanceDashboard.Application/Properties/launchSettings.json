@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FinanceDashboard.Application": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
