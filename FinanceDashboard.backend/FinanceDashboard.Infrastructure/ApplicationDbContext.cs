@@ -1,5 +1,4 @@
-﻿
-using FinanceDashboard.Domain.Models;
+﻿using FinanceDashboard.Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +16,9 @@ namespace FinanceDashboard.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); 
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.Category); 
 
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Transactions)

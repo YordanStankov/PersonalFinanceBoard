@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\FinanceDashboard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj": {}
+    "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj": {}
   },
   "projects": {
-    "C:\\FinanceDashboard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj": {
+    "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\FinanceDashboard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
+        "projectUniqueName": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
         "projectName": "FinanceDashboard.Application",
-        "projectPath": "C:\\FinanceDashboard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
+        "projectPath": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\FinanceDashboard\\FinanceDashboard.backend\\FinanceDashboard.Application\\obj\\",
+        "outputPath": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -67,20 +67,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.20, 8.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

@@ -1,8 +1,11 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace FinanceDashboard.Domain.Models
 {
     public class Transaction
     {
+        [Key]
         public Guid Guid { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
