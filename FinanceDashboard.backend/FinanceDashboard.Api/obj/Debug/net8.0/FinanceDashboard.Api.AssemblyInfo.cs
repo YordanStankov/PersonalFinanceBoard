@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinanceDashboard.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07034beb7d5b55ead330ef3954c0684449d7f97d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b643301954e99615032fd45f31616a010582f8e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinanceDashboard.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinanceDashboard.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
