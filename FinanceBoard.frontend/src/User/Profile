@@ -1,0 +1,6 @@
+function Profile(){
+    var data = fetch('')
+    return{
+
+    }
+}

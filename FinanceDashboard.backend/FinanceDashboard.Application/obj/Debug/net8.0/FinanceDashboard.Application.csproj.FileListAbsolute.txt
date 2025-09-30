@@ -10,3 +10,7 @@ C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\ob
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\obj\Debug\net8.0\refint\FinanceDashboard.Application.dll
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\obj\Debug\net8.0\FinanceDashboard.Application.pdb
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\obj\Debug\net8.0\ref\FinanceDashboard.Application.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\bin\Debug\net8.0\FinanceDashboard.Domain.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\bin\Debug\net8.0\FinanceDashboard.Domain.pdb
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\obj\Debug\net8.0\FinanceDashboard.Application.csproj.AssemblyReference.cache
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Application\obj\Debug\net8.0\FinanceD.809872C1.Up2Date

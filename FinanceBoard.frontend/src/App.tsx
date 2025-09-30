@@ -28,9 +28,8 @@ function App() {
       <p className="read-the-docs">
         Wow i am programing in typescript!
       </p>
-<p>
-  shit happens
-</p>
+      
+      <button id='UserProfileButton' onClick={() => window.location.href = '/profile'}>User Button</button>
     </>
   )
 }

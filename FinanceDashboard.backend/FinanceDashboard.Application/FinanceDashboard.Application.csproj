@@ -14,7 +14,10 @@
 
   <ItemGroup>
     <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FinanceDashboard.Domain\FinanceDashboard.Domain.csproj" />
   </ItemGroup>
 
 </Project>
