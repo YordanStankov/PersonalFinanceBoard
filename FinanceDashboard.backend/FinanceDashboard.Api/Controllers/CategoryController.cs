@@ -7,5 +7,10 @@ namespace FinanceDashboard.Api.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("CategoryController is working!");
+        }
     }
 }

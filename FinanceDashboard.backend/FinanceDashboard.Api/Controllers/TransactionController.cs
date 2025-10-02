@@ -7,5 +7,10 @@ namespace FinanceDashboard.Api.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok("TransactionController is working!");
+        }
     }
 }

@@ -1,13 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { Routes, Route, useNavigate, Router, BrowserRouter } from 'react-router-dom';
+import Profile from './User/Profile.tsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const navigate = useNavigate();
 
   return (
     <>
+        <Routes>
+          <Route path="/user/profile" element={<Profile />} />
+        </Routes>
+    
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -28,10 +36,13 @@ function App() {
       <p className="read-the-docs">
         Wow i am programing in typescript!
       </p>
-      
-      <button id='UserProfileButton' onClick={() => window.location.href = '/profile'}>User Button</button>
+
+      <button id='UserProfileButton' onClick={function RedirectToUser(){
+        return navigate('/user/profile');
+      }}>User Button</button>
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;
