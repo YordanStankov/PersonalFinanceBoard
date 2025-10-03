@@ -4,12 +4,11 @@ import { type User } from '../Models/User';
 
 
 function Profile() {
-    const [profile, setProfile] = useState<User | null>(null);
+   /* const [profile, setProfile] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        
         fetch('https://localhost:7010/api/User')
             .then((res) => {
                 if (!res.ok) throw new Error('Failed to fetch profile');
@@ -29,7 +28,7 @@ function Profile() {
     if (error) return <div>Error: {error}</div>;
     if (!profile) return <div>No profile data found.</div>;
 
-
+*/ const profile: User = { id: 'whawhatwhatwhatwaht', userName: 'JohnDoe', email: 'manthisfuckinglangugesucksman@gmail.com'}
     return (
         alert('Profile Loaded!'),
         <div className="profile-container">

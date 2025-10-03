@@ -3,6 +3,50 @@
   "WorkspaceRootPath": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|solutionrelative:financedashboard.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\seeding\\userseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\seeding\\userseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB66CBCB-A612-4661-9566-41D88B690DAB}|FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB66CBCB-A612-4661-9566-41D88B690DAB}|FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj|solutionrelative:financedashboard.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\user\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\dtos\\user\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\user\\loginresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\dtos\\user\\loginresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\repositories\\transactionsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\repositories\\transactionsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\user\\registerresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\dtos\\user\\registerresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\user\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\dtos\\user\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|solutionrelative:financedashboard.api\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +55,8 @@
       "RelativeMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|solutionrelative:financedashboard.api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|solutionrelative:financedashboard.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|solutionrelative:financedashboard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\seeding\\userseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\seeding\\userseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\transaction\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,22 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\dtos\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\dtos\\user\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF4E5333-0DA6-4437-8BA8-53EE9BEDF6E8}|FinanceDashboard.Application\\FinanceDashboard.Application.csproj|solutionrelative:financedashboard.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DB66CBCB-A612-4661-9566-41D88B690DAB}|FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DB66CBCB-A612-4661-9566-41D88B690DAB}|FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj|solutionrelative:financedashboard.domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\financedashboard.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -77,10 +97,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\seeding\\categoryseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\seeding\\categoryseeding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.infrastructure\\repositories\\transactionsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{54DCF511-B20C-4258-9438-85CEA41472EB}|FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj|solutionrelative:financedashboard.infrastructure\\repositories\\transactionsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E85FE5C1-0E67-4D48-A1FA-8737AB61C6CD}|FinanceDashboard.Api\\FinanceDashboard.Api.csproj|c:\\personalfinanceboard\\financedashboard.backend\\financedashboard.api\\financedashboard.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -162,7 +178,150 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T15:43:44.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T15:36:34.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwCEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T15:43:10.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\User\\LoginDTO.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\LoginDTO.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T19:51:47.502Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginResultDTO.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\LoginResultDTO.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\User\\LoginResultDTO.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\LoginResultDTO.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\LoginResultDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T19:53:05.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Api\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\UserController.cs",
+              "RelativeToolTip": "FinanceDashboard.Api\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T16:00:47.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserSeeding.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
+              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAIwBEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T17:50:06.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T15:45:13.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TransactionsRepository.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
+              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T15:40:15.491Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RegisterResultDTO.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\RegisterResultDTO.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\User\\RegisterResultDTO.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\RegisterResultDTO.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\RegisterResultDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T19:53:16.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\User\\RegisterDTO.cs",
+              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\RegisterDTO.cs",
+              "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\RegisterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-03T19:52:52.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "FinanceDashboard.Api.csproj",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
@@ -170,36 +329,12 @@
               "RelativeToolTip": "FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T11:06:07.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserSeeding.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
-              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Seeding\\UserSeeding.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAADwvykAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T17:50:06.916Z",
+              "WhenOpened": "2025-09-24T11:06:07.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:36:34.524Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Program.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\Program.cs",
@@ -212,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "CategoryController.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\CategoryController.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\Controllers\\CategoryController.cs",
@@ -225,33 +360,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "TransactionController.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\TransactionController.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\Controllers\\TransactionController.cs",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\TransactionController.cs",
               "RelativeToolTip": "FinanceDashboard.Api\\Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-29T15:59:39.007Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Api\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Controllers\\UserController.cs",
-              "RelativeToolTip": "FinanceDashboard.Api\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAWwAgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T16:00:47.968Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "TransactionDTO.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\Transaction\\TransactionDTO.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\Transaction\\TransactionDTO.cs",
@@ -264,7 +386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "UserDTO.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\User\\UserDTO.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\User\\UserDTO.cs",
@@ -272,47 +394,12 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\UserDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T21:01:42.616Z"
+              "WhenOpened": "2025-10-01T21:01:42.616Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Application\\Services\\UserService.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "FinanceDashboard.Application\\Services\\UserService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCUAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T15:43:44.173Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Application\\Interfaces\\IUserService.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "FinanceDashboard.Application\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T15:45:13.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:43:10.367Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Models\\User.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Models\\User.cs",
@@ -320,11 +407,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:11:28.117Z"
+              "WhenOpened": "2025-09-24T11:11:28.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "CategoryDTO.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\DTOs\\Category\\CategoryDTO.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Application\\DTOs\\Category\\CategoryDTO.cs",
@@ -332,23 +420,12 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\Category\\CategoryDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T21:02:09.019Z"
+              "WhenOpened": "2025-10-01T21:02:09.019Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "TransactionsRepository.cs",
-              "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
-              "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
-              "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
-              "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:40:15.491Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Models\\Category.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Models\\Category.cs",
@@ -356,23 +433,25 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:09:42.291Z"
+              "WhenOpened": "2025-09-24T11:09:42.291Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "Transaction.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Models\\Transaction.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Models\\Transaction.cs",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Models\\Transaction.cs",
               "RelativeToolTip": "FinanceDashboard.Domain\\Models\\Transaction.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAA+wBAAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBAAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:13:49.052Z"
+              "WhenOpened": "2025-09-24T11:13:49.052Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "CategorySeeding.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\CategorySeeding.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Seeding\\CategorySeeding.cs",
@@ -380,11 +459,12 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Seeding\\CategorySeeding.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAQwCAAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T16:04:01.32Z"
+              "WhenOpened": "2025-09-30T16:04:01.32Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 21,
               "Title": "FinanceDashboard.Application.csproj",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
@@ -392,11 +472,12 @@
               "RelativeToolTip": "FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-30T15:40:48.056Z"
+              "WhenOpened": "2025-09-30T15:40:48.056Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 22,
               "Title": "TransactionSeeding.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Seeding\\TransactionSeeding.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Seeding\\TransactionSeeding.cs",
@@ -404,11 +485,12 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Seeding\\TransactionSeeding.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwBQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T16:10:47.544Z"
+              "WhenOpened": "2025-09-30T16:10:47.544Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 24,
               "Title": "FinanceDashboard.Api.http",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\FinanceDashboard.Api.http",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\FinanceDashboard.Api.http",
@@ -416,11 +498,12 @@
               "RelativeToolTip": "FinanceDashboard.Api\\FinanceDashboard.Api.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-24T17:31:00.549Z"
+              "WhenOpened": "2025-09-24T17:31:00.549Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 25,
               "Title": "ITransactionsRepository.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\ITransactionsRepository.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Interfaces\\ITransactionsRepository.cs",
@@ -428,11 +511,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Interfaces\\ITransactionsRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:35:58.63Z"
+              "WhenOpened": "2025-09-29T15:35:58.63Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "ICategoryRepository.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Interfaces\\ICategoryRepository.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Interfaces\\ICategoryRepository.cs",
@@ -440,11 +524,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Interfaces\\ICategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:36:17.257Z"
+              "WhenOpened": "2025-09-29T15:36:17.257Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "FinanceDashboard.Infrastructure.csproj",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
@@ -452,11 +537,12 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-29T17:47:35.77Z"
+              "WhenOpened": "2025-09-29T17:47:35.77Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "FinanceDashboard.Domain.csproj",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
@@ -464,11 +550,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T11:06:12.583Z"
+              "WhenOpened": "2025-09-24T11:06:12.583Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "CategoryRepository.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\CategoryRepository.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\CategoryRepository.cs",
@@ -476,11 +563,12 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\CategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:42:50.841Z"
+              "WhenOpened": "2025-09-29T15:42:50.841Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\appsettings.Development.json",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\appsettings.Development.json",
@@ -488,11 +576,12 @@
               "RelativeToolTip": "FinanceDashboard.Api\\appsettings.Development.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-24T17:31:15.515Z"
+              "WhenOpened": "2025-09-24T17:31:15.515Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\Dockerfile",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\Dockerfile",
@@ -500,11 +589,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-09-24T11:03:10.042Z"
+              "WhenOpened": "2025-09-24T11:03:10.042Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\appsettings.json",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\appsettings.json",
@@ -512,23 +602,25 @@
               "RelativeToolTip": "FinanceDashboard.Api\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-24T17:32:16.091Z"
+              "WhenOpened": "2025-09-24T17:32:16.091Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\ApplicationDbContext.cs",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\ApplicationDbContext.cs",
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBQAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:15:43.344Z"
+              "WhenOpened": "2025-09-24T11:15:43.344Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 40,
               "Title": "20250928184902_Initial.cs",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Migrations\\20250928184902_Initial.cs",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Migrations\\20250928184902_Initial.cs",
@@ -536,55 +628,60 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Migrations\\20250928184902_Initial.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T18:49:02.718Z"
+              "WhenOpened": "2025-09-28T18:49:02.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "FinanceDashboard.Infrastructure",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\FinanceDashboard.Infrastructure.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T17:54:57.731Z"
+              "WhenOpened": "2025-09-24T17:54:57.731Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "FinanceDashboard.Api",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "RelativeToolTip": "FinanceDashboard.Api\\FinanceDashboard.Api.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T17:54:50.603Z"
+              "WhenOpened": "2025-09-24T17:54:50.603Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "FinanceDashboard.Application",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "RelativeToolTip": "FinanceDashboard.Application\\FinanceDashboard.Application.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T17:54:43.137Z"
+              "WhenOpened": "2025-09-24T17:54:43.137Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 37,
               "Title": "FinanceDashboard.Domain",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "RelativeToolTip": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-09-24T17:54:32.564Z"
+              "WhenOpened": "2025-09-24T17:54:32.564Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 38,
               "Title": "FinanceDashboard.Domain.csproj.Backup.tmp",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj.Backup.tmp",
               "RelativeDocumentMoniker": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj.Backup.tmp",
@@ -592,11 +689,12 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\FinanceDashboard.Domain.csproj.Backup.tmp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-09-24T17:33:59.903Z"
+              "WhenOpened": "2025-09-24T17:33:59.903Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 39,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Api\\Dockerfile",
               "RelativeDocumentMoniker": "FinanceDashboard.Api\\Dockerfile",
@@ -604,7 +702,8 @@
               "RelativeToolTip": "FinanceDashboard.Api\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-09-24T11:03:03.482Z"
+              "WhenOpened": "2025-09-24T11:03:03.482Z",
+              "EditorCaption": ""
             }
           ]
         }

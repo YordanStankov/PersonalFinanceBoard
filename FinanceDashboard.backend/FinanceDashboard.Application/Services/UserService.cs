@@ -1,15 +1,14 @@
-﻿
-
-
-
-using FinanceDashboard.Application.DTOs.User;
+﻿using FinanceDashboard.Application.DTOs.User;
+using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
+
 
 namespace FinanceDashboard.Application.Services
 {
-    public class UserService : Interfaces.IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
@@ -39,6 +38,49 @@ namespace FinanceDashboard.Application.Services
                     UserId = c.UserId
                 }).ToList()
             };
+        }
+
+        public async Task<LoginResultDTO> LoginUser(LoginDTO loginDto)
+        {
+            LoginResultDTO result = new LoginResultDTO();
+            try
+            {
+                var user = await _userRepository.LoginUser(loginDto.Email, loginDto.Password);
+                if (user != null)
+                {
+                    result.IsSuccessful = true;
+                    result.Token = "Dumy-token";
+                    result.Expiration = DateTime.UtcNow.AddHours(1);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccessful = false;
+                result.Token = null;
+                result.Expiration = DateTime.MinValue;
+                throw new Exception(ex.Message);    
+            }
+            return result;
+        }
+
+        public async Task<RegisterResultDTO> RegisterUser(RegisterDTO registerDto)
+        {
+            var result = new RegisterResultDTO();
+            try
+            {
+                var user = await _userRepository.RegisterUser(registerDto.UserName, registerDto.Email, registerDto.Password);
+                result.UserId = user.Id;
+                result.UserName = user.UserName;
+                result.Email = user.Email;
+                result.IsSuccessful = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result.IsSuccessful = false;
+                result.Errors = new List<string> { ex.Message };
+                return result;
+            }
         }
     }
 }

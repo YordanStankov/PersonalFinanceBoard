@@ -6,10 +6,16 @@ import './App.css';
 import { Routes, Route, useNavigate, Router, BrowserRouter } from 'react-router-dom';
 import Profile from './User/Profile.tsx';
 
+function UserButton(){
+    const navigate = useNavigate();
+    return <button id='UserProfileButton' onClick={ function PressButton(){
+      navigate('/user/profile');
+    } }>User Button</button>
+  }
 function App() {
   const [count, setCount] = useState(0);
   const navigate = useNavigate();
-
+  
   return (
     <>
         <Routes>
@@ -37,9 +43,7 @@ function App() {
         Wow i am programing in typescript!
       </p>
 
-      <button id='UserProfileButton' onClick={function RedirectToUser(){
-        return navigate('/user/profile');
-      }}>User Button</button>
+      <UserButton/>
 
     </>
   );

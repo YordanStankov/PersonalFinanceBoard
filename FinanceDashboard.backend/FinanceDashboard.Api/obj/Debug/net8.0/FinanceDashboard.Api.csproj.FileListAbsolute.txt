@@ -250,3 +250,8 @@ C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\PersonalFinanceBoard\FinanceDashboard.backend\FinanceDashboard.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
