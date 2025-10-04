@@ -8,10 +8,12 @@ namespace FinanceDashboard.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        
-        public UserService(IUserRepository userRepository)
+        private readonly IJWTGeneratorService _jwtGeneratorService;
+        public UserService(IUserRepository userRepository, IJWTGeneratorService jWTGeneratorService)
         {
             _userRepository = userRepository;
+            _jwtGeneratorService = jWTGeneratorService;
+
         }
 
         public async Task<UserDTO> GetUser(string userId)
@@ -49,7 +51,7 @@ namespace FinanceDashboard.Application.Services
                 if (user != null)
                 {
                     result.IsSuccessful = true;
-                    result.Token = "Dumy-token";
+                    result.Token = _jwtGeneratorService.GenerateToken(user.Id);
                     result.Expiration = DateTime.UtcNow.AddHours(1);
                 }
             }
