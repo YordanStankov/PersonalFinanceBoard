@@ -30,6 +30,7 @@ namespace FinanceDashboard.Api.Controllers
         {
             return Ok("UserController is working!");
         }
+
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDto)
         {
@@ -41,7 +42,7 @@ namespace FinanceDashboard.Api.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("login")]
+        [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
             var result = await _userService.LoginUser(loginDTO);

@@ -10,6 +10,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FinanceDashboard.Api.Controllers.CategoryController",
+    "Method": "CreateCategory",
+    "RelativePath": "api/Category/CreateCategory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinanceDashboard.Application.DTOs.Category.CreateCategoryDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinanceDashboard.Api.Controllers.CategoryController",
+    "Method": "ListCategoriesOfUserAsync",
+    "RelativePath": "api/Category/List",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FinanceDashboard.Api.Controllers.TransactionController",
     "Method": "Get",
     "RelativePath": "api/Transaction",
@@ -48,7 +80,7 @@
   {
     "ContainingType": "FinanceDashboard.Api.Controllers.UserController",
     "Method": "Login",
-    "RelativePath": "api/User/login",
+    "RelativePath": "api/User/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -17,18 +17,27 @@ namespace FinanceDashboard.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.Category); 
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Transactions)
-                .WithOne(t => t.User)
+            modelBuilder.Entity<Transaction>(t =>
+            {
+                t.HasKey(t => new { t.UserId, t.CategoryGuid });
+                
+                t.HasOne(t => t.Category)
+                .WithMany(c => c.Transactions)
+                .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Categories)
-                .WithOne(c => c.User)
+                t.HasOne(t => t.User)
+                .WithMany(u => u.Transactions)
+                .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+            });
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.Transactions)
+                .WithOne(t => t.Category)
+                .HasForeignKey(t => t.CategoryGuid)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }
