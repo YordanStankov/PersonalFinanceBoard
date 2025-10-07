@@ -25,7 +25,7 @@ builder.Services.AddIdentity<User, IdentityRole>()
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJWTGeneratorService, JWTGeneratorService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 
 //Registering Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();

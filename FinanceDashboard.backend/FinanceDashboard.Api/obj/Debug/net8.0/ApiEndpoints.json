@@ -44,11 +44,27 @@
   {
     "ContainingType": "FinanceDashboard.Api.Controllers.TransactionController",
     "Method": "Get",
-    "RelativePath": "api/Transaction",
+    "RelativePath": "api/Transaction/CreateTransaction",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FinanceDashboard.Api.Controllers.TransactionController",
+    "Method": "CreateTransaction",
+    "RelativePath": "api/Transaction/CreateTransaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "FinanceDashboard.Application.DTOs.Transaction.CreateTransactionDTO",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

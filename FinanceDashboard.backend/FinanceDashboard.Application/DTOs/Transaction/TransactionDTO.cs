@@ -1,5 +1,4 @@
-﻿
-using FinanceDashboard.Application.DTOs.Category;
+﻿using FinanceDashboard.Application.DTOs.Category;
 using FinanceDashboard.Application.DTOs.User;
 
 namespace FinanceDashboard.Application.DTOs.Transaction
