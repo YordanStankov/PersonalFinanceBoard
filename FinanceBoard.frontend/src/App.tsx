@@ -3,8 +3,9 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-import { Routes, Route, useNavigate, Router, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, useNavigate} from 'react-router-dom';
 import Profile from './User/Profile.tsx';
+import LoginForm from './UserAuthentication/Login.tsx';
 
 function UserButton(){
     const navigate = useNavigate();
@@ -12,14 +13,20 @@ function UserButton(){
       navigate('/user/profile');
     } }>User Button</button>
   }
+
+   function LoginButton(){
+    const navigate = useNavigate();
+    return <button onClick={function PressButton(){
+      navigate('/login,register/login');
+    }}>LoginButton</button>
+  }
 function App() {
   const [count, setCount] = useState(0);
-  const navigate = useNavigate();
-  
   return (
     <>
         <Routes>
           <Route path="/user/profile" element={<Profile />} />
+          <Route path="/userauthentication/login" element={< LoginForm />} />
         </Routes>
     
       <div>
@@ -42,9 +49,8 @@ function App() {
       <p className="read-the-docs">
         Wow i am programing in typescript!
       </p>
-
-      <UserButton/>
-
+      <UserButton />
+      <LoginButton />
     </>
   );
 }
