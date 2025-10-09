@@ -16,6 +16,18 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5180") 
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials(); 
+        });
+});
+
 // Register Identity services
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -48,7 +60,7 @@ await app.SeedUsers();
 await app.SeedCategories();
 await app.SeedTransactions();
 app.UseHttpsRedirection();
-
+app.UseCors("AllowLocalhost");
 app.UseAuthorization();
 
 app.MapControllers();

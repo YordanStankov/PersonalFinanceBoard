@@ -17,7 +17,7 @@ function UserButton(){
    function LoginButton(){
     const navigate = useNavigate();
     return <button onClick={function PressButton(){
-      navigate('/login,register/login');
+      navigate('/userauthentication/login');
     }}>LoginButton</button>
   }
 function App() {

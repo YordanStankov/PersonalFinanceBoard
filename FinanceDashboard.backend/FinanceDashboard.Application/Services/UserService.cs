@@ -53,6 +53,9 @@ namespace FinanceDashboard.Application.Services
                     result.IsSuccessful = true;
                     result.Token = _jwtGeneratorService.GenerateToken(user.Id);
                     result.Expiration = DateTime.UtcNow.AddHours(1);
+                    result.UserId = user.Id;
+                    result.Email = user.Email;
+                    result.UserName = user.UserName;
                 }
             }
             catch (Exception ex)

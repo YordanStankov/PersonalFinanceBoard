@@ -1,35 +1,47 @@
-import React, { use } from "react"
 import type { LoginDTO } from "../Models/DTOs/LoginDTO"
-import { Form } from "react-router-dom";
+import type {User} from "../Models/User"
 
-const loginData: LoginDTO = {username: "", password: ""};   
-export default function LoginForm() {
-    function submitHandler(data : FormData){
+const loginData: LoginDTO = {email: "", password: ""};   
+const currUser : User = {id: "", userName: "", email: ""};  
+function submitHandler(data : FormData){
        
-        const username = data.get("username");
+        const email = data.get("email");
         const password = data.get("password");
-        if(typeof username === "string" && typeof password === "string") {
-            loginData.username = username;
+        if(typeof email === "string" && typeof password === "string") {
+            loginData.email = email;
             loginData.password = password;
-            alert(`Username: ${loginData.username}, Password: ${loginData.password}`);
-            fetch('https://localhost:7010/api/UserController/login', {
+            alert(`Email: ${loginData.email}, Password: ${loginData.password}`);
+            console.log("Starting fetch");
+            fetch('https://localhost:7010/api/User/Login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(loginData)
             })
             .then(response => {
+                console.log(response);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 else if (response.ok){
                     alert("Login successful!");
                 }
-                alert(response.json()) ;
-    }
-).then(data => {
-                console.log('Success:', data);
+                return response.json();
+            }).then(data => {
+                currUser.id = data.UserId;
+                currUser.userName = data.UserName;
+                currUser.email = data.Email;
+                currUser.JWT = data.Token;
+                console.log("Fetched user:", currUser);
+                alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
+                localStorage.setItem('token', currUser.JWT ?? '');
+                localStorage.setItem('User', JSON.stringify(currUser));
+            }).catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                alert("Login failed. Please check your credentials and try again. error: " + error.message);
             })
-    }
+        }
+}
+export default function LoginForm() {
     return (
         <>
         <div>
@@ -40,8 +52,8 @@ export default function LoginForm() {
                 submitHandler(formData);
             }}>
                 <label>
-                    Username:
-                    <input type="text" name="username" />
+                    Email:
+                    <input type="text" name="email" />
                 </label>
                 <br />
                 <label>
@@ -55,4 +67,5 @@ export default function LoginForm() {
         </>
     )
     }
-}
+    
+
