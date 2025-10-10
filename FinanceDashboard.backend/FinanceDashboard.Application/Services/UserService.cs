@@ -57,13 +57,18 @@ namespace FinanceDashboard.Application.Services
                     result.Email = user.Email;
                     result.UserName = user.UserName;
                 }
+                else
+                {
+                    result.IsSuccessful = false;
+                    result.Exception = "Wrong credentials";
+                }
             }
             catch (Exception ex)
             {
                 result.IsSuccessful = false;
                 result.Token = null;
                 result.Expiration = DateTime.MinValue;
-                throw new Exception(ex.Message);    
+                result.Exception = ex.Message;    
             }
             return result;
         }

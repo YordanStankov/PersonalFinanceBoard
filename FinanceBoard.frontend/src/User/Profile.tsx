@@ -1,4 +1,3 @@
-import React, { StrictMode, useEffect, useState } from 'react';
 import { type User } from '../Models/User';
 
 
@@ -30,7 +29,6 @@ function Profile() {
 
 */ const profile: User = { id: 'whawhatwhatwhatwaht', userName: 'JohnDoe', email: 'manthisfuckinglangugesucksman@gmail.com'}
     return (
-        alert('Profile Loaded!'),
         <div className="profile-container">
             <h2>{profile.userName}</h2>
             <p>Email: {profile.email}</p>

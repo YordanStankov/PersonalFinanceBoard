@@ -2,45 +2,74 @@ import type { LoginDTO } from "../Models/DTOs/LoginDTO"
 import type {User} from "../Models/User"
 
 const loginData: LoginDTO = {email: "", password: ""};   
-const currUser : User = {id: "", userName: "", email: ""};  
-function submitHandler(data : FormData){
-       
-        const email = data.get("email");
-        const password = data.get("password");
-        if(typeof email === "string" && typeof password === "string") {
+const currUser : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};  
+async function submitHandler( event : FormData){
+
+        const email = event.get("email");
+        const password = event.get("password");
+
+        if((typeof email === "string" && typeof password === "string") && (email.length > 0 && password.length > 0)){ 
             loginData.email = email;
             loginData.password = password;
+
             alert(`Email: ${loginData.email}, Password: ${loginData.password}`);
             console.log("Starting fetch");
-            fetch('https://localhost:7010/api/User/Login', {
+
+           var result =  await fetch('https://localhost:7010/api/User/Login', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json',
+                    'Accept': 'application/json'},
                 body: JSON.stringify(loginData)
             })
-            .then(response => {
-                console.log(response);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                else if (response.ok){
-                    alert("Login successful!");
-                }
-                return response.json();
-            }).then(data => {
-                currUser.id = data.UserId;
-                currUser.userName = data.UserName;
-                currUser.email = data.Email;
-                currUser.JWT = data.Token;
-                console.log("Fetched user:", currUser);
+
+            console.log("Fetch status:", result.status);
+
+            if(!result.ok){
+                alert("Login failed. Please check your credentials and try again. Status: " + result.status);
+            }
+
+            else if(result.ok){
+                try{
+                alert("Login successful!");
+                const data = await result.json();
+                currUser.id = data.userId;
+                currUser.userName = data.userName;
+                currUser.email = data.email;
+                currUser.JWT = data.token;
                 alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
-                localStorage.setItem('token', currUser.JWT ?? '');
+                localStorage.setItem(`token`, currUser.JWT ?? '');
                 localStorage.setItem('User', JSON.stringify(currUser));
-            }).catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                alert("Login failed. Please check your credentials and try again. error: " + error.message);
-            })
+                } catch(error){
+                    alert("An error occured while proccesing your request:" + (error as Error).message);
+                }
+            }
+            // .then(response => {
+            //     if (!response.ok) {
+            //         throw new Error('Network response was not ok');
+            //     }
+            //     else if (response.ok){
+            //         alert("Login successful!");
+            //     }
+            //     return response.json();
+            // }).then( data=> {
+            //     currUser.id = data.userId;
+            //     currUser.userName = data.userName;
+            //     currUser.email = data.email;
+            //     currUser.JWT = data.token;
+            //     console.log("Fetched user:", currUser);
+            //     alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
+            //     localStorage.setItem('token', currUser.JWT ?? '');
+            //     localStorage.setItem('User', JSON.stringify(currUser));
+            // }).catch(error => {
+            //     console.error('There was a problem with the fetch operation:', error);
+            //     alert("Login failed. Please check your credentials and try again. error: " + error.message);
+            // })
+        }
+        else {
+            alert("Invalid input. Please enter valid email and password.");
         }
 }
+
 export default function LoginForm() {
     return (
         <>
@@ -66,6 +95,6 @@ export default function LoginForm() {
         </div>
         </>
     )
-    }
+}
     
 

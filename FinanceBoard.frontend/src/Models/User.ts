@@ -7,4 +7,5 @@ export type User ={
     email: string;
     Transactions?: Transaction[];
     Categories?: Category[];
+    JWT?: string;
 }
