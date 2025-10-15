@@ -1,6 +1,9 @@
-﻿using FinanceDashboard.Application.DTOs.User;
+﻿using FinanceDashboard.Application.DTOs.Category;
+using FinanceDashboard.Application.DTOs.Transaction;
+using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
+using System.Security.Claims;
 
 
 namespace FinanceDashboard.Application.Services
@@ -42,6 +45,39 @@ namespace FinanceDashboard.Application.Services
             };
         }
 
+        public async Task<UserProfileDTO> GetUserProfileAsync(ClaimsPrincipal userClaim)
+        {
+            UserProfileDTO userProfile = new UserProfileDTO();
+            var user = await _userRepository.GetUserByClaimAsync(userClaim);
+            try
+            {
+                userProfile.UserName = user.UserName;
+                userProfile.Transactions = user.Transactions.Select(t => new TransactionListDTO
+                {
+                    TimeOfTransaction = t.Date,
+                    Amount = t.Amount,
+                    Description = t.Description,
+                    CategoryName = t.Category != null ? t.Category.Name : "Uncategorized"
+                }).ToList();
+                userProfile.Categories = user.Categories.Select(c => new CategoryListDTO
+                {
+                    Name = c.Name,
+                    TransactionListDTOs = c.Transactions.Select(t => new TransactionListDTO
+                    {
+                        TimeOfTransaction = t.Date,
+                        Amount = t.Amount,
+                        Description = t.Description,
+                        CategoryName = t.Category != null ? t.Category.Name : "Uncategorized"
+                    }).ToList()
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                userProfile.exception = ex.Message;
+            }
+            return userProfile;
+        }
+
         public async Task<LoginResultDTO> LoginUser(LoginDTO loginDto)
         {
             LoginResultDTO result = new LoginResultDTO();
@@ -51,7 +87,7 @@ namespace FinanceDashboard.Application.Services
                 if (user != null)
                 {
                     result.IsSuccessful = true;
-                    result.Token = _jwtGeneratorService.GenerateToken(user.Id);
+                    result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
                     result.Expiration = DateTime.UtcNow.AddHours(1);
                     result.UserId = user.Id;
                     result.Email = user.Email;
@@ -92,5 +128,6 @@ namespace FinanceDashboard.Application.Services
                 return result;
             }
         }
+
     }
 }

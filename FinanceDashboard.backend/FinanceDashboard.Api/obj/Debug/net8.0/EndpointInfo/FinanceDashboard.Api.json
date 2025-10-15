@@ -120,28 +120,6 @@
         }
       }
     },
-    "/api/User/{userId}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/User": {
       "get": {
         "tags": [
@@ -215,6 +193,37 @@
           }
         }
       }
+    },
+    "/api/User/LoadProfile": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimsPrincipal"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimsPrincipal"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimsPrincipal"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -229,6 +238,121 @@
           "name": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Claim": {
+        "type": "object",
+        "properties": {
+          "issuer": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "originalIssuer": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "subject": {
+            "$ref": "#/components/schemas/ClaimsIdentity"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "valueType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClaimsIdentity": {
+        "type": "object",
+        "properties": {
+          "authenticationType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "actor": {
+            "$ref": "#/components/schemas/ClaimsIdentity"
+          },
+          "bootstrapContext": {
+            "nullable": true
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "nameClaimType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "roleClaimType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClaimsPrincipal": {
+        "type": "object",
+        "properties": {
+          "claims": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Claim"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "identities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClaimsIdentity"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "identity": {
+            "$ref": "#/components/schemas/IIdentity"
           }
         },
         "additionalProperties": false
@@ -276,6 +400,26 @@
           "userId": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IIdentity": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "authenticationType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isAuthenticated": {
+            "type": "boolean",
+            "readOnly": true
           }
         },
         "additionalProperties": false

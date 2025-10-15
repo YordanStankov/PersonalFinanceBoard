@@ -1,6 +1,8 @@
 ﻿using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace FinanceDashboard.Api.Controllers
 {
@@ -14,16 +16,16 @@ namespace FinanceDashboard.Api.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{userId}")]
-        public async Task<IActionResult> Get(string userId)
-        {
-            var user = await _userService.GetUser(userId);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return Ok(user);
-        }
+        //[HttpGet("{userId}")]
+        //public async Task<IActionResult> Get(string userId)
+        //{
+        //    var user = await _userService.GetUser(userId);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(user);
+        //}
 
         [HttpGet]
         public IActionResult Get()
@@ -51,6 +53,13 @@ namespace FinanceDashboard.Api.Controllers
                 return Ok(result);
             }
             return BadRequest(result);
+        }
+
+        [HttpPost("LoadProfile")]
+        public async Task<IActionResult> LoadProfile([FromBody] ClaimsPrincipal userClaim)
+        {
+            var UserProfile = await _userService.GetUserProfileAsync(User);
+            return Ok(UserProfile);
         }
     }
 }

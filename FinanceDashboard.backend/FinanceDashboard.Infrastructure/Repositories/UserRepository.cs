@@ -2,6 +2,7 @@
 using FinanceDashboard.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace FinanceDashboard.Infrastructure.Repositories
 {
@@ -23,6 +24,12 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .Include(u => u.Transactions)
                 .FirstOrDefaultAsync(u => u.Id == userId) 
                 ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
+        }
+
+        public async Task<User> GetUserByClaimAsync(ClaimsPrincipal userClaim)
+        {
+            var user = await _userManager.GetUserAsync(userClaim);
+            return user; 
         }
 
         public async Task<User> LoginUser(string email, string password)

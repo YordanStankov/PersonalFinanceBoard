@@ -79,15 +79,15 @@
   },
   {
     "ContainingType": "FinanceDashboard.Api.Controllers.UserController",
-    "Method": "Get",
-    "RelativePath": "api/User/{userId}",
-    "HttpMethod": "GET",
+    "Method": "LoadProfile",
+    "RelativePath": "api/User/LoadProfile",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.String",
+        "Name": "userClaim",
+        "Type": "System.Security.Claims.ClaimsPrincipal",
         "IsRequired": true
       }
     ],

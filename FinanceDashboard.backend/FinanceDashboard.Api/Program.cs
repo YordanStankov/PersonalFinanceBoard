@@ -7,6 +7,9 @@ using FinanceDashboard.Domain.Interfaces;
 using FinanceDashboard.Infrastructure.Repositories;
 using FinanceDashboard.Application.Services;
 using FinanceDashboard.Application.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +36,18 @@ builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(jwtOptions =>
+{
+    jwtOptions.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidIssuer = builder.Configuration["JWT:Issuer"],
+        ValidAudience = builder.Configuration["JWT:Audience"]
+    };
+});
+
 //Registering Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJWTGeneratorService, JWTGeneratorService>();
@@ -47,7 +62,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,6 +76,8 @@ await app.SeedCategories();
 await app.SeedTransactions();
 app.UseHttpsRedirection();
 app.UseCors("AllowLocalhost");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

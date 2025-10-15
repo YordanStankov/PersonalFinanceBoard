@@ -1,38 +1,38 @@
-import { type User } from '../Models/User';
+import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
+import type { UserProfileDTO } from '../Models/DTOs/User/UserProfileDTO';
+import type { User } from '../Models/User';
+import { jwtDecode } from 'jwt-decode';
 
+const profile : UserProfileDTO = { userName: ""};
+ async function GetUserProfile( ){
+    var token = localStorage.getItem(`token`) ?? "jwtToken";
+    var credentials = jwtDecode(token)
+    console.log(token)
+    await fetch("https://localhost:7010/api/User/LoadProfile", {
+        method: 'GET',
+        headers: { 
+            'Accept': 'application/json',
+        }
+    }).then(response => {
+        if (!response.ok) {
+            console.log("Fetch status:", response.status);
+            throw new Error('Network response was not ok');
+        }
+        else if(response.ok){
+            alert("Profile loaded successfully!");
+        }
+    })
+}
 
 
 function Profile() {
-   /* const [profile, setProfile] = useState<User | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-
-    useEffect(() => {
-        fetch('https://localhost:7010/api/User')
-            .then((res) => {
-                if (!res.ok) throw new Error('Failed to fetch profile');
-                return res.json();
-            })
-            .then((data) => {
-                setProfile(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(err.message);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
-    if (!profile) return <div>No profile data found.</div>;
-
-*/ const profile: User = { id: 'whawhatwhatwhatwaht', userName: 'JohnDoe', email: 'manthisfuckinglangugesucksman@gmail.com'}
+    GetUserProfile()
     return (
+        <>
         <div className="profile-container">
-            <h2>{profile.userName}</h2>
-            <p>Email: {profile.email}</p>
+            <h2>UserName : {profile.userName}</h2>
         </div>
+</>
     );
 }
 

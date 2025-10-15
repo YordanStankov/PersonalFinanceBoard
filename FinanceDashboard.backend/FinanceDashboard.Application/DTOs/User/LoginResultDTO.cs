@@ -1,4 +1,5 @@
-﻿
+﻿using System.IdentityModel.Tokens.Jwt;
+
 namespace FinanceDashboard.Application.DTOs.User
 {
     public class LoginResultDTO
