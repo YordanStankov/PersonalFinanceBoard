@@ -246,8 +246,7 @@
               "RelativeToolTip": "FinanceDashboard.Api\\Controllers\\UserController.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAAADoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T16:00:47.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T16:00:47.968Z"
             },
             {
               "$type": "Document",
@@ -272,8 +271,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\UserProfileDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T10:24:27.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-13T10:24:27.466Z"
             },
             {
               "$type": "Document",
@@ -285,8 +283,7 @@
               "RelativeToolTip": "FinanceDashboard.Api\\Program.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAADwvxMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-28T18:38:44.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-28T18:38:44.834Z"
             },
             {
               "$type": "Document",
@@ -298,8 +295,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\Services\\UserService.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAwwDAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T15:43:44.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T15:43:44.173Z"
             },
             {
               "$type": "Document",
@@ -311,8 +307,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\Category\\CategoryListDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:27:32.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T20:27:32.208Z"
             },
             {
               "$type": "Document",
@@ -336,8 +331,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\Transaction\\TransactionListDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T20:29:14.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-06T20:29:14.049Z"
             },
             {
               "$type": "Document",
