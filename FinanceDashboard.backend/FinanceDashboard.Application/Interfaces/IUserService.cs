@@ -8,6 +8,6 @@ namespace FinanceDashboard.Application.Interfaces
         Task<UserDTO> GetUser(string userId);
         Task<RegisterResultDTO> RegisterUser(RegisterDTO registerDto);
         Task<LoginResultDTO> LoginUser(LoginDTO loginDto);
-        Task<UserProfileDTO> GetUserProfileAsync(ClaimsPrincipal userClaim);
+        Task<UserProfileDTO> GetUserProfileAsync(string userId);
     }
 }

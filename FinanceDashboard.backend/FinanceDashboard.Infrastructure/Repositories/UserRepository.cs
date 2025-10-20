@@ -17,7 +17,7 @@ namespace FinanceDashboard.Infrastructure.Repositories
             _userManager = userManager;
         }
 
-        public Task<User> GetUser(string userId)
+        public Task<User> GetUserAsync(string userId)
         {
            return _context.Users
                 .Include(u => u.Categories)
@@ -26,11 +26,7 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
         }
 
-        public async Task<User> GetUserByClaimAsync(ClaimsPrincipal userClaim)
-        {
-            var user = await _userManager.GetUserAsync(userClaim);
-            return user; 
-        }
+        
 
         public async Task<User> LoginUser(string email, string password)
         {

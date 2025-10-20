@@ -35,14 +35,15 @@ namespace FinanceDashboard.Application.Services
 
             var descriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-            new Claim(ClaimTypes.NameIdentifier, userId),
-            new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.Name, username),
-        }),
                 Expires = DateTime.UtcNow.AddMinutes(_expirationMinutes),
+                Claims = new Dictionary<string, object>()
+                {
+                    {"Id", userId },
+                    {"Email", email },
+                    {"Name", username }
+                },
                 Issuer = _issuer,
+                
                 Audience = _audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

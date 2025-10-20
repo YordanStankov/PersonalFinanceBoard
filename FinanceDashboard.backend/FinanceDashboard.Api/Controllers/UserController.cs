@@ -54,12 +54,14 @@ namespace FinanceDashboard.Api.Controllers
             }
             return BadRequest(result);
         }
-
         [HttpPost("LoadProfile")]
-        public async Task<IActionResult> LoadProfile([FromBody] ClaimsPrincipal userClaim)
+        public async Task<IActionResult> LoadProfile([FromBody] object userId)
         {
-            var UserProfile = await _userService.GetUserProfileAsync(User);
-            return Ok(UserProfile);
+            var UserProfile = await _userService.GetUserProfileAsync(userId.ToString() ?? "userId");
+            if (UserProfile.exception == string.Empty || UserProfile.exception.Length > 3)
+                return Ok(UserProfile);
+            else 
+                return BadRequest($"Exception: {UserProfile.exception}");
         }
     }
 }

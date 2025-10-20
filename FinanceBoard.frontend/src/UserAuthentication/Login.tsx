@@ -37,7 +37,9 @@ async function submitHandler( event : FormData){
                 currUser.email = data.email;
                 currUser.JWT = data.token;
                 alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
+                localStorage.clear();
                 localStorage.setItem(`token`, currUser.JWT ?? '');
+                console.log(localStorage.getItem(`token`) ?? "jwtMissing")
                 localStorage.setItem('User', JSON.stringify(currUser));
                 } catch(error){
                     alert("An error occured while proccesing your request:" + (error as Error).message);

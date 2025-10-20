@@ -86,8 +86,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userClaim",
-        "Type": "System.Security.Claims.ClaimsPrincipal",
+        "Name": "userId",
+        "Type": "System.Object",
         "IsRequired": true
       }
     ],

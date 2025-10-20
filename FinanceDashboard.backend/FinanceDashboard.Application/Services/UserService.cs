@@ -21,7 +21,7 @@ namespace FinanceDashboard.Application.Services
 
         public async Task<UserDTO> GetUser(string userId)
         {
-            var user = await _userRepository.GetUser(userId);
+            var user = await _userRepository.GetUserAsync(userId);
             return new UserDTO
             {
                 UserId = user.Id,
@@ -45,22 +45,16 @@ namespace FinanceDashboard.Application.Services
             };
         }
 
-        public async Task<UserProfileDTO> GetUserProfileAsync(ClaimsPrincipal userClaim)
+        public async Task<UserProfileDTO> GetUserProfileAsync(string userId)
         {
             UserProfileDTO userProfile = new UserProfileDTO();
-            var user = await _userRepository.GetUserByClaimAsync(userClaim);
+            var user = await _userRepository.GetUserAsync(userId);
             try
             {
                 userProfile.UserName = user.UserName;
-                userProfile.Transactions = user.Transactions.Select(t => new TransactionListDTO
-                {
-                    TimeOfTransaction = t.Date,
-                    Amount = t.Amount,
-                    Description = t.Description,
-                    CategoryName = t.Category != null ? t.Category.Name : "Uncategorized"
-                }).ToList();
                 userProfile.Categories = user.Categories.Select(c => new CategoryListDTO
                 {
+                    Guid = c.Guid, 
                     Name = c.Name,
                     TransactionListDTOs = c.Transactions.Select(t => new TransactionListDTO
                     {

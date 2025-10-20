@@ -11,7 +11,6 @@ namespace FinanceDashboard.Application.DTOs.User
         public Decimal MonthlySpending { get; set; } = 0;   
         public Decimal AverageDailySpending { get; set; } = 0;
         public ICollection<CategoryListDTO> Categories { get; set; } = new List<CategoryListDTO>();
-        public ICollection<TransactionListDTO> Transactions { get; set; } = new List<TransactionListDTO>();
         public string exception { get; set; } = string.Empty;
     }
 }
