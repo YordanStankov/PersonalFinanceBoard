@@ -26,8 +26,6 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
         }
 
-        
-
         public async Task<User> LoginUser(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);
@@ -40,21 +38,35 @@ namespace FinanceDashboard.Infrastructure.Repositories
 
         public async Task<User> RegisterUser(string userName, string email, string password)
         {
-            var user = new User
+            if (await _context.Users.AnyAsync(u => u.UserName == userName))
             {
-                UserName = userName,
-                Email = email
-            };
-
-            var result = await _userManager.CreateAsync(user, password);
-
-            if (result.Succeeded)
-            {
-                return await _context.Users
-                    .FirstOrDefaultAsync(u => u.UserName == userName)
-                    ?? throw new KeyNotFoundException($"User with username {userName} not found.");
+                throw new Exception($"Username {userName} is already taken.");
             }
-            throw new Exception(string.Join("; ", result.Errors.Select(e => e.Description)));
+            else if (await _context.Users.AnyAsync(u => u.Email == email))
+            {
+                throw new Exception($"Email {email} is already registered.");
+            }
+            else if (password.Length < 6)
+            {
+                throw new Exception("Password must be at least 6 characters long.");
+            }
+            else
+            {
+                var user = new User
+                {
+                    UserName = userName,
+                    Email = email
+                };
+                var result = await _userManager.CreateAsync(user, password);
+                if (result.Succeeded)
+                {
+                    await _context.SaveChangesAsync();
+                    return await _context.Users
+                        .FirstOrDefaultAsync(u => u.Id == user.Id)
+                        ?? throw new KeyNotFoundException($"User with userName {userName} not found.");
+                }
+                throw new Exception(string.Join("; ", result.Errors.Select(e => e.Description)));
+            }
         }
     }
 }

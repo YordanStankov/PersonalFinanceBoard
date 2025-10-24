@@ -1,8 +1,6 @@
 ﻿using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace FinanceDashboard.Api.Controllers
 {
@@ -36,7 +34,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDto)
         {
-            var result = await _userService.RegisterUser(registerDto);
+            var result = await _userService.RegisterUserAsync(registerDto);
             if (result.IsSuccessful == true)
             {
                 return Ok(result);

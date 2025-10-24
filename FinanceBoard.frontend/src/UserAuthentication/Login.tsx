@@ -1,4 +1,4 @@
-import type { LoginDTO } from "../Models/DTOs/LoginDTO"
+import type { LoginDTO } from "../Models/DTOs/Authentication/LoginDTO"
 import type {User} from "../Models/User"
 
 const loginData: LoginDTO = {email: "", password: ""};   

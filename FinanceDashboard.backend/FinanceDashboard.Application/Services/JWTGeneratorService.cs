@@ -43,7 +43,6 @@ namespace FinanceDashboard.Application.Services
                     {"Name", username }
                 },
                 Issuer = _issuer,
-                
                 Audience = _audience,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

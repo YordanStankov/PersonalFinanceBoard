@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { type JSX } from 'react';
 import type { CategoryList } from '../Models/DTOs/Category/CategoryList';
 import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
 import type { UserProfileDTO } from '../Models/DTOs/User/UserProfileDTO';
 import { jwtDecode } from 'jwt-decode';
+import { jsx } from 'react/jsx-runtime';
 
 
 // var time : string = "";
@@ -73,25 +74,64 @@ function DisplayCategoryTransactions(Transactions : TransactionList[]){
     }
     
 }
-function DisplayUserCategories(categories: CategoryList[]){
-    if(categories.length === 0 || !categories){
-        return <h2>No categories for this user.</h2>;
+
+function DisplayUserCategories(categories: CategoryList[]) : JSX.Element[] {
+    // var [passed, setPassed] = React.useState<boolean>(false);
+    var [jsxElements, setjsxElements] = React.useState<JSX.Element[]>([]);
+    // if(passed === true){
+    //      jsxElements;
+    // }
+    // if(categories.length === 0 || !categories){
+    //      jsxElements;
+    // }
+    if(!categories || categories.length === 0){
+        return [<h2 key="NoCategories">No categories for this user.</h2>];
     }
-    
-    else{
-      
-        for(var i = 0; i < categories.length; i++ ){
-                return <>
-                <h2>Categories: </h2>
-            <div>
-                 <h2>{categories[i].Name} </h2>
-                    <div className="TransactionsContainer">
-                    {DisplayCategoryTransactions(categories[i].TransactionList)}
-                    </div>
-            </div>
-            </>
-        }
-    }
+        categories.map((entry) => {
+            console.log("Entry in DisplayUserCategories:", entry);
+            setjsxElements(jsxElements.concat(<div key={entry.Name}>
+               <h2>{entry.Name} </h2>
+                   <div className="TransactionsContainer">
+                   {/* {DisplayCategoryTransactions(entry.TransactionList)} */}
+                   </div>
+           </div>));
+        });
+        return jsxElements;
+        // setPassed(passed = true);
+        // return elements;
+
+
+        // for(integer; integer < categories.length - 1; integer++){
+        //     setInteger(integer = integer + 1);
+        //     console.log("Integer value in DisplayUserCategories:", integer);
+        //       return <>
+        //       <div>
+        //          <h2>{categories[integer].Name} </h2>
+        //              <div className="TransactionsContainer">
+        //              {DisplayCategoryTransactions(categories[integer].TransactionList)}
+        //              </div>
+        //      </div>
+        //      </>
+              
+        // }
+
+        //     while(true){
+                
+        //     setInteger(integer = integer + 1);
+        //         console.log("Integer value:", integer);
+        //           var tempJsx = <>
+        //     <div>
+        //          <h2>{categories[integer].Name} </h2>
+        //             <div className="TransactionsContainer">
+        //             {DisplayCategoryTransactions(categories[integer].TransactionList)}
+        //             </div>
+        //     </div>
+        //     </>;
+        //         if(integer >= categories.length - 1){ {
+        //             break;
+        //         }
+        // }
+    // }
 }
 
 function SetProfile(data : React.Dispatch<React.SetStateAction<UserProfileDTO>>) {
@@ -108,10 +148,13 @@ function SetProfile(data : React.Dispatch<React.SetStateAction<UserProfileDTO>>)
     );
 };
 
+ 
 
 function Profile() {
     const [profile, setProfile] =  React.useState<UserProfileDTO>({userName: ""});
-    SetProfile(setProfile);
+    var [jsxElements, setjsxElements] = React.useState<JSX.Element[]>([]);
+        setjsxElements(jsxElements = (DisplayUserCategories(profile.Categories ?? [])));
+        SetProfile(setProfile);
     return (
         <>
         
@@ -121,7 +164,11 @@ function Profile() {
             <h2>Monthly income: {profile.MonthlyIncome}</h2>
             <h2>Avergae daily spending: {profile.AverageDailySpending}</h2>
         </div>
-        {DisplayUserCategories(profile.Categories ?? categories)} 
+
+        <div className='categories-container'>
+            <h2>Categories and their transactions: </h2>
+            {jsxElements}
+        </div>
 </>
     );
 }

@@ -1,6 +1,7 @@
 ﻿using FinanceDashboard.Application.DTOs.Category;
 using FinanceDashboard.Application.DTOs.Transaction;
 using FinanceDashboard.Application.DTOs.User;
+using FinanceDashboard.Application.DTOs.User.Result;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
 using System.Security.Claims;
@@ -103,13 +104,14 @@ namespace FinanceDashboard.Application.Services
             return result;
         }
 
-        public async Task<RegisterResultDTO> RegisterUser(RegisterDTO registerDto)
+        public async Task<RegisterResultDTO> RegisterUserAsync(RegisterDTO registerDto)
         {
             var result = new RegisterResultDTO();
             try
             {
                 var user = await _userRepository.RegisterUser(registerDto.UserName, registerDto.Email, registerDto.Password);
                 result.UserId = user.Id;
+                result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
                 result.UserName = user.UserName;
                 result.Email = user.Email;
                 result.IsSuccessful = true;
@@ -122,6 +124,5 @@ namespace FinanceDashboard.Application.Services
                 return result;
             }
         }
-
     }
 }
