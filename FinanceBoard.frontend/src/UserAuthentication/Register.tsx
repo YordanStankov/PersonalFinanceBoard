@@ -3,6 +3,27 @@ import type { User } from "../Models/User";
 
 const registerData: RegisterDTO = {userName: "", email: "", password: ""};
 const user : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};
+
+function isPasswordValid(password: string): boolean {
+    const passwordRegex = new RegExp('([A-Z]{1})([* ]*)([1-9]{1})([^ ]*)([!@#$%^&*]{1})');
+    return passwordRegex.test(password);
+}
+
+function passwordChecker(password: string): boolean {
+    if(!isPasswordValid(password)){
+        alert("Password must contain at least one uppercase letter, one number, and one special character.");
+        return false;
+        }
+
+    else if(password.length < 6){
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+   
 async function RegisterRequest(event: FormData){
 
     const userName = event.get("userName");
@@ -10,11 +31,14 @@ async function RegisterRequest(event: FormData){
     const password = event.get("password");
 
     if((typeof userName === "string" && typeof email === "string" && typeof password === "string") 
-        && (userName.length > 0 && email.length > 0 && password.length > 0)){ 
+        && (userName.length > 0 && email.length > 0 && password.length > 6)){ 
         registerData.userName = userName;
         registerData.email = email;
         registerData.password = password;
-}
+    }
+    if(!passwordChecker(registerData.password)) 
+        return;
+    else{
         alert(`Username: ${registerData.userName}, Email: ${registerData.email}, Password: ${registerData.password}`);
         var response =  await fetch('https://localhost:7010/api/User/Register', {
             method: 'POST',
@@ -41,6 +65,8 @@ async function RegisterRequest(event: FormData){
             localStorage.SetItem('User', user ?? 'User not available');
 
         }
+    }
+        
 }
  function RegisterForm() {
     return (

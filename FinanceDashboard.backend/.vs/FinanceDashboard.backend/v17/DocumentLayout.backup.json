@@ -249,8 +249,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\Services\\UserService.cs",
               "ViewState": "AgIAAGoAAAAAAAAAAAAwwG8AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T15:43:44.173Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T15:43:44.173Z"
             },
             {
               "$type": "Document",
@@ -262,8 +261,7 @@
               "RelativeToolTip": "FinanceDashboard.Api\\Controllers\\UserController.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAswCoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T16:00:47.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T16:00:47.968Z"
             },
             {
               "$type": "Document",
@@ -275,8 +273,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\Result\\RegisterResultDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T19:53:16.16Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T19:53:16.16Z"
             },
             {
               "$type": "Document",
@@ -288,8 +285,7 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Interfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAcAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:36:34.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T15:36:34.524Z"
             },
             {
               "$type": "Document",
@@ -301,8 +297,7 @@
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\TransactionsRepository.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAYwAYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T15:40:15.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-29T15:40:15.491Z"
             },
             {
               "$type": "Document",
@@ -312,7 +307,7 @@
               "RelativeDocumentMoniker": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
               "ToolTip": "C:\\PersonalFinanceBoard\\FinanceDashboard.backend\\FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeToolTip": "FinanceDashboard.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAwwDMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAwwDQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-29T15:43:10.367Z",
               "EditorCaption": ""
@@ -327,8 +322,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\Category\\CategoryForTransactionCreationDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T11:02:40.813Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T11:02:40.813Z"
             },
             {
               "$type": "Document",
@@ -353,8 +347,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\Result\\LoginResultDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T19:53:05.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T19:53:05.644Z"
             },
             {
               "$type": "Document",
@@ -366,8 +359,7 @@
               "RelativeToolTip": "FinanceDashboard.Domain\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T11:11:28.117Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-24T11:11:28.117Z"
             },
             {
               "$type": "Document",
@@ -379,8 +371,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\Services\\JWTGeneratorService.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAswCwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T15:54:31.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T15:54:31.98Z"
             },
             {
               "$type": "Document",
@@ -392,8 +383,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\Interfaces\\IJWTGeneratorService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T15:53:43.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-04T15:53:43.465Z"
             },
             {
               "$type": "Document",
@@ -405,8 +395,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\Interfaces\\IUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T15:45:13.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T15:45:13.746Z"
             },
             {
               "$type": "Document",
@@ -418,8 +407,7 @@
               "RelativeToolTip": "FinanceDashboard.Application\\DTOs\\User\\RegisterDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-03T19:52:52.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-03T19:52:52.704Z"
             },
             {
               "$type": "Document",
