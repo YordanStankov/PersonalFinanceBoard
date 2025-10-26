@@ -1,3 +1,4 @@
+import './Css/Register.css'
 import type { RegisterDTO } from "../Models/DTOs/Authentication/RegisterDTO"
 import type { User } from "../Models/User";
 
@@ -5,13 +6,19 @@ const registerData: RegisterDTO = {userName: "", email: "", password: ""};
 const user : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};
 
 function isPasswordValid(password: string): boolean {
-    const passwordRegex = new RegExp('([A-Z]{1})([* ]*)([1-9]{1})([^ ]*)([!@#$%^&*]{1})');
-    return passwordRegex.test(password);
+    const CapitalCheck = new RegExp('[A-Z]');
+    const numberCheck = new RegExp('[0-9]');
+    const specialCharCheck = new RegExp('[^A-Za-z0-9]');
+        if(CapitalCheck.test(password))
+            if(numberCheck.test(password))
+                if(specialCharCheck.test(password))
+                    return true;
+    return false;
 }
 
 function passwordChecker(password: string): boolean {
     if(!isPasswordValid(password)){
-        alert("Password must contain at least one uppercase letter, one number, and one special character.");
+        alert("Password must contain at least one uppercase letter, one number, and one special character." +  "\n You entered: " + password);
         return false;
         }
 
@@ -70,12 +77,16 @@ async function RegisterRequest(event: FormData){
 }
  function RegisterForm() {
     return (
+        <div className='RegisterForm'>
+        <header className='Header'>
+                <h1 className='HeaderText'>Register</h1>
+        </header>
         <form method="post" onSubmit={function(event){
             event.preventDefault();
             const formData = new FormData(event.currentTarget);
             RegisterRequest(formData);
         }}>
-            <h1>Register</h1>
+            
             <label>
                 Username:
                 <input type="text" name="userName" />
@@ -93,6 +104,7 @@ async function RegisterRequest(event: FormData){
             <br />
             <button type="submit">Register</button>
         </form>
+        </div>
     );
 };
 

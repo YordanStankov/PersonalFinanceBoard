@@ -1,5 +1,6 @@
 import type { LoginDTO } from "../Models/DTOs/Authentication/LoginDTO"
 import type {User} from "../Models/User"
+import './Css/Login.css'
 
 const loginData: LoginDTO = {email: "", password: ""};   
 const currUser : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};  
@@ -75,23 +76,31 @@ async function submitHandler( event : FormData){
 export default function LoginForm() {
     return (
         <>
-        <div>
-            <h1>Login Page</h1>
+        <div className="LoginForm">
+            <header>
+                <h1>Login Page</h1> 
+            </header>
+            
             <form method="post" onSubmit={function(event){
                 event.preventDefault();
                 const formData = new FormData(event.currentTarget);
                 submitHandler(formData);
             }}>
+                <div>
                 <label>
                     Email:
                     <input type="text" name="email" />
                 </label>
                 <br />
+                </div>
+               <div>
                 <label>
                     Password:
                     <input type="password" name="password" />
                 </label>
                 <br />
+                </div> 
+                
                 <button type="submit">Log in</button>
             </form>
         </div>

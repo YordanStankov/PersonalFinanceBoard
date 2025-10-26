@@ -1,0 +1,28 @@
+.LoginForm{
+background-color: rgba(128, 0, 128, 0.121);
+    border: 0.3rem solid wheat;
+    border-radius: 1rem;
+    margin:2rem;
+}
+.LoginForm form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.LoginForm form h1{
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.LoginForm form button{
+    margin-bottom: 2rem;
+    background-color: rgba(218, 165, 32, 0.399);
+}
+.LoginForm form input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 0.5rem;;
+}

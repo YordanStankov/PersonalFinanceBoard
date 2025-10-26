@@ -1,0 +1,31 @@
+.Header{
+    text-align: center;
+}
+.HeaderText{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.RegisterForm{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12%;
+    border: 0.3rem solid wheat;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 139, 0.081);
+}
+.RegisterForm form input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+.RegisterForm button{
+   margin-bottom: 1rem;
+   background-color: rgba(64, 224, 208, 0.44);
+}
