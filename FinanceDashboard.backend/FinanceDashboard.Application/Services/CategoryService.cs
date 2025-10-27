@@ -1,5 +1,6 @@
 ﻿
 using FinanceDashboard.Application.DTOs.Category;
+using FinanceDashboard.Application.DTOs.Category.Result;
 using FinanceDashboard.Application.DTOs.Transaction;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
@@ -14,13 +15,22 @@ namespace FinanceDashboard.Application.Services
             _categoryRepository = categoryRepository;
         }
 
-        public async Task<bool> CreateCategoryFSAsync(CreateCategoryDTO dto)
+        public async Task<CreateCategoryResult> CreateCategoryAsync(CreateCategoryDTO dto)
         {
             var category = await _categoryRepository.CreateCategoryAsync(dto.UserId, dto.Name);
+            CreateCategoryResult result = new CreateCategoryResult();
             if (category == null)
-                return false;
+            {
+                result.IsSuccess = false;
+                result.Guid = Guid.Empty;
+            }
             else
-                return true;
+            {
+                result.IsSuccess = true;
+                result.Guid = category.Guid;
+            }
+               
+            return result;
         }
 
         public async Task<List<CategoryListDTO>> GetAllCategoriesOfOneUserAsync(string userId)

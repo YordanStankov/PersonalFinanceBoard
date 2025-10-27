@@ -23,12 +23,13 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("CreateCategory")]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDTO dto)
         {
-            var result = await _categoryService.CreateCategoryFSAsync(dto);
-            if (result == true)
+            var result = await _categoryService.CreateCategoryAsync(dto);
+            if (result.IsSuccess)
                 return Ok(result);
             else
-                return BadRequest("Category not created");
+                return BadRequest("Category already present in Database for this User.");
         }
+
         [HttpPost("List")]
         public async Task<IActionResult> ListCategoriesOfUserAsync([FromBody]string userId)
         {

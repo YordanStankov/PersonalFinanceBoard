@@ -17,7 +17,8 @@ namespace FinanceDashboard.Infrastructure.Repositories
         {
             var category = await _context.Categories
                 .FirstOrDefaultAsync(c => c.Name == name && c.UserId == userId);
-            if (category == null)
+            var user = await _context.Users.AnyAsync(u => u.Id == userId);
+            if (category == null && user == true)
             {
                 Category cat = new Category
                 {
@@ -29,7 +30,7 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 return cat;
             }
             else
-                throw new Exception("Category already present in DB for User");
+                return new Category();
         }
 
         public async Task<List<Category>> GetAllCategoriesOfUserAsync(string userId)
