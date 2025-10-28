@@ -36,19 +36,15 @@ namespace FinanceDashboard.Infrastructure.Repositories
             return null;
         }
 
-        public async Task<User> RegisterUser(string userName, string email, string password)
+        public async Task<string> RegisterUser(string userName, string email, string password)
         {
             if (await _context.Users.AnyAsync(u => u.UserName == userName))
             {
-                throw new Exception($"Username {userName} is already taken.");
+                return "Error: Username is already taken.";
             }
             else if (await _context.Users.AnyAsync(u => u.Email == email))
             {
-                throw new Exception($"Email {email} is already registered.");
-            }
-            else if (password.Length < 6)
-            {
-                throw new Exception("Password must be at least 6 characters long.");
+                return $"Error: Email {email} is already registered.";
             }
             else
             {
@@ -61,11 +57,9 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 if (result.Succeeded)
                 {
                     await _context.SaveChangesAsync();
-                    return await _context.Users
-                        .FirstOrDefaultAsync(u => u.Id == user.Id)
-                        ?? throw new KeyNotFoundException($"User with userName {userName} not found.");
+                    return user.Id;
                 }
-                throw new Exception(string.Join("; ", result.Errors.Select(e => e.Description)));
+                return $"Error: User registration failed: {string.Join(", ", result.Errors.Select(e => e.Description))}";
             }
         }
     }

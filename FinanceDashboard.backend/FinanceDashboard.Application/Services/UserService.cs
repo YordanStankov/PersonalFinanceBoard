@@ -107,22 +107,24 @@ namespace FinanceDashboard.Application.Services
         public async Task<RegisterResultDTO> RegisterUserAsync(RegisterDTO registerDto)
         {
             var result = new RegisterResultDTO();
-            try
+            
+                string output = await _userRepository.RegisterUser(registerDto.UserName, registerDto.Email, registerDto.Password);
+            if (!output.StartsWith("Error"))
             {
-                var user = await _userRepository.RegisterUser(registerDto.UserName, registerDto.Email, registerDto.Password);
+                var user = await _userRepository.GetUserAsync(output);
                 result.UserId = user.Id;
                 result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
                 result.UserName = user.UserName;
                 result.Email = user.Email;
                 result.IsSuccessful = true;
-                return result;
             }
-            catch (Exception ex)
+
+            else if (output.StartsWith("Error:"))
             {
                 result.IsSuccessful = false;
-                result.Errors = new List<string> { ex.Message };
-                return result;
+                result.Error = output;
             }
+            return result;
         }
     }
 }

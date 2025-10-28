@@ -7,6 +7,6 @@
         public string UserName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public bool IsSuccessful { get; set; }
-        public IEnumerable<string> Errors { get; set; } = Array.Empty<string>();
+        public string Error { get; set; } = string.Empty;
     }
 }
