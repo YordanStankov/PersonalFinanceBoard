@@ -44,14 +44,15 @@ namespace FinanceDashboard.Infrastructure.Migrations
 
             modelBuilder.Entity("FinanceDashboard.Domain.Models.Transaction", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("CategoryGuid")
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
+
+                    b.Property<Guid>("CategoryGuid")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
@@ -59,15 +60,17 @@ namespace FinanceDashboard.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("Guid")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.Property<string>("UserName")
                         .HasColumnType("text");
 
-                    b.HasKey("UserId", "CategoryGuid");
+                    b.HasKey("Guid");
 
                     b.HasIndex("CategoryGuid");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Transactions");
                 });
@@ -290,8 +293,7 @@ namespace FinanceDashboard.Infrastructure.Migrations
                     b.HasOne("FinanceDashboard.Domain.Models.User", "User")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Category");
 

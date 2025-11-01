@@ -29,5 +29,14 @@ namespace FinanceDashboard.Api.Controllers
             else
                 return BadRequest(result);
         }
+        [HttpPost("GetTransactionById")]
+        public async Task<IActionResult> GetTransactionById([FromBody] Guid transactionGuid)
+        {
+            var result = await _transactionService.GetTransactionByGuidAsync(transactionGuid);
+            if (result != null)
+                return Ok(result);
+            else
+                return NotFound();
+        }
     }
 }

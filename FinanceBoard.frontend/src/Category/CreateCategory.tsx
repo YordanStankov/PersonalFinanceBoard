@@ -26,13 +26,13 @@ async function CreateCategoryRequest(event: FormData){
             'Accept': 'application/json'},
         body: JSON.stringify(categoryData)
     })
+    const data = await response.json();
     if(!response.ok){
         console.log("Fetch status:", response.status);
-        alert("Category creation failed. Please try again. Status: " + response.status);
+        alert("Error: " + data.error);
     }
     else if(response.ok){
-        alert("Category created successfully!");
-        var data = await response.json();
+        alert("Category created successfully!" + data.guid);
         console.log(data);
     }
 }

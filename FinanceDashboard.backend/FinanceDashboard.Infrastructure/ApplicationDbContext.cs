@@ -20,11 +20,11 @@ namespace FinanceDashboard.Infrastructure
 
             modelBuilder.Entity<Transaction>(t =>
             {
-                t.HasKey(t => new { t.UserId, t.CategoryGuid });
+                t.HasKey(t => t.Guid);
                 
                 t.HasOne(t => t.Category)
                 .WithMany(c => c.Transactions)
-                .HasForeignKey(t => t.UserId)
+                .HasForeignKey(t => t.CategoryGuid)
                 .OnDelete(DeleteBehavior.Cascade);
 
                 t.HasOne(t => t.User)

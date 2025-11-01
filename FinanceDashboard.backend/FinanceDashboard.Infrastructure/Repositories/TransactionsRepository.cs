@@ -12,30 +12,26 @@ namespace FinanceDashboard.Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<Transaction> CreateTransactionAsync(string userId, decimal amount, Guid categoryGuid, string description, DateTime date)
+
+        public async Task<bool> CheckForTransactionAsync(string userId, DateTime transactionDate)
         {
-            var check = await _context.Transactions.AnyAsync(t => t.UserId == userId && t.Amount == amount && t.CategoryGuid == categoryGuid);
-            if (check == true)
-            {
-                throw new InvalidOperationException("Transaction already exists.");
-            }
-            else if (check == false)
-            {
-                var trans = new Transaction
-                {
-                    Amount = amount,
-                    Date = date,
-                    CategoryGuid = categoryGuid,
-                    Description = description,
-                    UserId = userId
-                };
-                _context.Transactions.Add(trans);
-                await _context.SaveChangesAsync();
-                return trans;
-            }
-            return new Transaction();
+            bool check = await _context.Transactions
+               .AnyAsync(t => t.UserId == userId && t.Date == transactionDate);
+            return check;
         }
 
-        
+        public async Task<Guid> CreateTransactionAsync(Transaction transaction)
+        {
+            await _context.Transactions.AddAsync(transaction);
+            await _context.SaveChangesAsync();
+            return transaction.Guid;
+        }
+
+        public async Task<Transaction> GetTransactionAsync(Guid guid)
+        {
+            return await _context.Transactions
+                .AsNoTracking()
+                .FirstOrDefaultAsync(t => t.Guid == guid);
+        }
     }
 }

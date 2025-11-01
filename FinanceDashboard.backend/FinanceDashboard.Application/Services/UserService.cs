@@ -50,25 +50,28 @@ namespace FinanceDashboard.Application.Services
         {
             UserProfileDTO userProfile = new UserProfileDTO();
             var user = await _userRepository.GetUserAsync(userId);
-            try
+            if (user == null)
             {
+                userProfile.IsSuccess = false;
+                userProfile.Error = "User not found.";
+            }
+            else
+            {
+                userProfile.IsSuccess = true;
                 userProfile.UserName = user.UserName;
                 userProfile.Categories = user.Categories.Select(c => new CategoryListDTO
                 {
-                    Guid = c.Guid, 
+                    Guid = c.Guid,
                     Name = c.Name,
                     TransactionListDTOs = c.Transactions.Select(t => new TransactionListDTO
                     {
+                        Guid = t.Guid,
                         TimeOfTransaction = t.Date,
                         Amount = t.Amount,
                         Description = t.Description,
                         CategoryName = t.Category != null ? t.Category.Name : "Uncategorized"
                     }).ToList()
                 }).ToList();
-            }
-            catch (Exception ex)
-            {
-                userProfile.exception = ex.Message;
             }
             return userProfile;
         }

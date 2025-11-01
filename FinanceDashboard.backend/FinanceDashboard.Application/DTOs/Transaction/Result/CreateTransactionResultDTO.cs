@@ -2,7 +2,7 @@
 {
     public class CreateTransactionResultDTO
     {
-        public Guid TransactionGuid { get; set; }
+        public Guid? TransactionGuid { get; set; } = Guid.Empty;
         public bool Success { get; set; }
         public string? ErrorMessage { get; set; } = null;   
     }

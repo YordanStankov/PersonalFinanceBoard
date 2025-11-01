@@ -1,8 +1,8 @@
 
 export type TransactionList = {
-    Guid : string;
-    Description : string;
-    CategoryName : string;
-    TimeOfTransaction : Date;
-    Amount : number;
+    guid : string;
+    description : string;
+    categoryName : string;
+    timeOfTransaction : Date;
+    amount : number;
 }

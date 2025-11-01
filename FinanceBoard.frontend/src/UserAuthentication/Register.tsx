@@ -53,14 +53,13 @@ async function RegisterRequest(event: FormData){
                 'Accept': 'application/json'},
             body: JSON.stringify(registerData)
         })
+        var data = await response.json();
         if(!response.ok){
             console.log("Fetch status:", response.status);
-            alert("Registration failed. Please try again. Status: " + response);
-            
+            alert("Registration failed. " + data.error);
         }
         else if(response.ok){
             alert("Registration successful! You can now log in with your credentials.");
-            var data = await response.json();
             console.log(data);
             localStorage.clear();
             user.id = data.userId;
@@ -73,8 +72,8 @@ async function RegisterRequest(event: FormData){
 
         }
     }
-        
 }
+
  function RegisterForm() {
     return (
         <div className='RegisterForm'>

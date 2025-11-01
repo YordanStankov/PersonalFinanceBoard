@@ -2,41 +2,69 @@
 using FinanceDashboard.Application.DTOs.Transaction.Result;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
+using FinanceDashboard.Domain.Models;
 
 namespace FinanceDashboard.Application.Services
 {
     public class TransactionService : ITransactionService
     {
         private readonly ITransactionsRepository _transactionsRepository;
-        public TransactionService(ITransactionsRepository transactionsRepository)
+        public readonly ICategoryRepository _categoryRepository;
+        public TransactionService(ITransactionsRepository transactionsRepository, ICategoryRepository categoryRepository)
         {
             _transactionsRepository = transactionsRepository;
+            _categoryRepository = categoryRepository;
         }
         public async Task<CreateTransactionResultDTO> CreateTransactionAsync(CreateTransactionDTO dto)
         {
-            try
+            CreateTransactionResultDTO resultDTO = new CreateTransactionResultDTO();
+
+            bool check = await _transactionsRepository
+                .CheckForTransactionAsync(dto.UserId!, dto.Date);
+
+            Guid categoryGuid = await _categoryRepository
+                .GetCategoryGuidAsync(dto.UserId!, dto.CategoryName);
+
+            if (check == false && categoryGuid != Guid.Empty)
             {
-                var transaction = await _transactionsRepository.CreateTransactionAsync(
-                dto.UserId!,
-                dto.Amount,
-                dto.CategoryGuid,
-                dto.Description!,
-                dto.Date);
-                return new CreateTransactionResultDTO
+                Transaction transaction = new Transaction
                 {
-                    TransactionGuid = transaction.Guid,
-                    Success = true,
-                    ErrorMessage = null
+                    Guid = Guid.NewGuid(),
+                    Amount = dto.Amount,
+                    Date = dto.Date,
+                    CategoryGuid = categoryGuid,
+                    Description = dto.Description,
+                    UserId = dto.UserId!
                 };
+                resultDTO.TransactionGuid = await _transactionsRepository.CreateTransactionAsync(transaction);
+                resultDTO.Success = true;
             }
-            catch (Exception ex)
+
+            else
             {
-                return new CreateTransactionResultDTO
-                {
-                    Success = false,
-                    ErrorMessage = ex.Message
-                };
+                resultDTO.Success = false;
+                if(check == true)
+                    resultDTO.ErrorMessage = "Transaction already exists at this exact time";
+
+                else if(categoryGuid == Guid.Empty)
+                    resultDTO.ErrorMessage = "Category does not exist";
             }
+            return resultDTO;
+        }
+
+        public async Task<TransactionDTO?> GetTransactionByGuidAsync(Guid transactionGuid)
+        {
+            var transaction = await _transactionsRepository.GetTransactionAsync(transactionGuid);
+            TransactionDTO? transactionDTO =  new TransactionDTO
+            {
+                Guid = transaction.Guid,
+                Amount = transaction.Amount,
+                Date = transaction.Date,
+                Description = transaction.Description,
+                CategoryGuid = transaction.CategoryGuid,
+                UserId = transaction.UserId
+            };
+            return transactionDTO;
         }
     }
 }

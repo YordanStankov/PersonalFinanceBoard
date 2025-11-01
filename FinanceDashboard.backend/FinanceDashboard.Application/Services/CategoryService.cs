@@ -4,33 +4,51 @@ using FinanceDashboard.Application.DTOs.Category.Result;
 using FinanceDashboard.Application.DTOs.Transaction;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
+using FinanceDashboard.Domain.Models;
 
 namespace FinanceDashboard.Application.Services
 {
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _categoryRepository;
-        public CategoryService(ICategoryRepository categoryRepository)
+        private readonly IUserRepository _userRepository;
+        public CategoryService(ICategoryRepository categoryRepository, IUserRepository userRepository)
         {
             _categoryRepository = categoryRepository;
+            _userRepository = userRepository;
         }
 
         public async Task<CreateCategoryResult> CreateCategoryAsync(CreateCategoryDTO dto)
         {
-            var category = await _categoryRepository.CreateCategoryAsync(dto.UserId, dto.Name);
             CreateCategoryResult result = new CreateCategoryResult();
-            if (category == null)
+            var category = await _categoryRepository
+                .GetCategoryAsync(dto.UserId, dto.Name);
+
+            var check = await _userRepository
+                .CheckUserExistenceAsync(dto.UserId);
+
+            if (category == null && check == true)
+            {
+                Category newCategory = new Category
+                {
+                    Guid = Guid.NewGuid(),
+                    Name = dto.Name,
+                    UserId = dto.UserId
+                };
+                result.Guid = await _categoryRepository.CreateCategoryAsync(newCategory);
+                result.IsSuccess = true;
+            }
+            else if (category != null)
             {
                 result.IsSuccess = false;
-                result.Guid = Guid.Empty;
+                result.Error = "Category already exists.";
             }
-            else
+            else if (check == false)
             {
-                result.IsSuccess = true;
-                result.Guid = category.Guid;
+                result.IsSuccess = false;
+                result.Error = "User does not exist.";
             }
-               
-            return result;
+                return result;
         }
 
         public async Task<List<CategoryListDTO>> GetAllCategoriesOfOneUserAsync(string userId)

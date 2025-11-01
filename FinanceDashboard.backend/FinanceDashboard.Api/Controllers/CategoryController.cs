@@ -27,7 +27,7 @@ namespace FinanceDashboard.Api.Controllers
             if (result.IsSuccess)
                 return Ok(result);
             else
-                return BadRequest("Category already present in Database for this User.");
+                return BadRequest(result);
         }
 
         [HttpPost("List")]

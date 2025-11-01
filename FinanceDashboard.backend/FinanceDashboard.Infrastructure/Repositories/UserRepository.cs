@@ -17,13 +17,18 @@ namespace FinanceDashboard.Infrastructure.Repositories
             _userManager = userManager;
         }
 
-        public Task<User> GetUserAsync(string userId)
+        public async Task<bool> CheckUserExistenceAsync(string userId)
         {
-           return _context.Users
-                .Include(u => u.Categories)
-                .Include(u => u.Transactions)
-                .FirstOrDefaultAsync(u => u.Id == userId) 
-                ?? throw new KeyNotFoundException($"User with ID {userId} not found.");
+            return await _context.Users
+                .AnyAsync(u => u.Id == userId);
+        }
+
+        public async Task<User> GetUserAsync(string userId)
+        {
+            return await _context.Users
+                 .Include(u => u.Categories)
+                 .Include(u => u.Transactions)
+                 .FirstOrDefaultAsync(u => u.Id == userId) ?? new User();
         }
 
         public async Task<User> LoginUser(string email, string password)

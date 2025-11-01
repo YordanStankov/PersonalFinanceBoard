@@ -56,10 +56,10 @@ namespace FinanceDashboard.Api.Controllers
         public async Task<IActionResult> LoadProfile([FromBody] object userId)
         {
             var UserProfile = await _userService.GetUserProfileAsync(userId.ToString() ?? "userId");
-            if (UserProfile.exception == string.Empty || UserProfile.exception.Length > 3)
+            if (UserProfile.IsSuccess == true)
                 return Ok(UserProfile);
             else 
-                return BadRequest($"Exception: {UserProfile.exception}");
+                return BadRequest(UserProfile);
         }
     }
 }

@@ -13,24 +13,11 @@ namespace FinanceDashboard.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Category> CreateCategoryAsync(string userId, string name)
+        public async Task<Guid> CreateCategoryAsync(Category category)
         {
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(c => c.Name == name && c.UserId == userId);
-            var user = await _context.Users.AnyAsync(u => u.Id == userId);
-            if (category == null && user == true)
-            {
-                Category cat = new Category
-                {
-                    Name = name,
-                    UserId = userId,
-                };
-                await _context.Categories.AddAsync(cat);
+                await _context.Categories.AddAsync(category);
                 await _context.SaveChangesAsync();
-                return cat;
-            }
-            else
-                return new Category();
+                return category.Guid;
         }
 
         public async Task<List<Category>> GetAllCategoriesOfUserAsync(string userId)
@@ -40,6 +27,21 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .AsNoTracking()
                 .Where(c => c.UserId == userId)
                 .ToListAsync();
+        }
+
+        public async Task<Category> GetCategoryAsync(string userId, string name)
+        {
+            return await _context.Categories
+                .FirstOrDefaultAsync(c => c.Name == name && c.UserId == userId);
+        }
+
+        public async Task<Guid> GetCategoryGuidAsync(string userId, string categoryName)
+        {
+            Guid category = await _context.Categories
+               .Where(c => c.UserId == userId && c.Name == categoryName)
+               .Select(c => c.Guid)
+               .FirstAsync();
+            return category;
         }
     }
 }

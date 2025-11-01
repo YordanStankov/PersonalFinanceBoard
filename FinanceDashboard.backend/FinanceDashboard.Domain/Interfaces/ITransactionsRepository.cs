@@ -4,6 +4,8 @@ namespace FinanceDashboard.Domain.Interfaces
 {
     public interface ITransactionsRepository
     {
-        Task<Transaction> CreateTransactionAsync(string userId, decimal amount, Guid categoryGuid, string description, DateTime date);
+        Task<bool> CheckForTransactionAsync(string userId, DateTime transactionDate);
+        Task<Guid> CreateTransactionAsync(Transaction transaction);
+        Task<Transaction> GetTransactionAsync(Guid guid);
     }
 }

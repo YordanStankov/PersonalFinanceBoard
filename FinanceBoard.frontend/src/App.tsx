@@ -4,6 +4,7 @@ import Profile from './User/Profile.tsx';
 import LoginForm from './UserAuthentication/Login.tsx';
 import RegisterForm from './UserAuthentication/Register.tsx';
 import CreateCategoryForm from './Category/CreateCategory.tsx';
+import CreateTransactionForm from './Transaction/CreateTransaction.tsx';
 
 function CreateCategoryButton(){
     const navigate = useNavigate();
@@ -33,20 +34,39 @@ function UserButton(){
     }}>LoginButton</button>
   }
 
+  function CreateTransactionButton(){
+    const navigate  = useNavigate();
+    return <button onClick={function PressButton(){
+      navigate('/transaction/createtransaction');
+    }}>CreateTransaction</button>
+  }
+
 function App() {
   return (
     <>
+    <main className='main'>
         <Routes>
           <Route path="/user/profile" element={<Profile />} />
           <Route path="/userauthentication/register" element={< RegisterForm />} />
           <Route path="/userauthentication/login" element={< LoginForm />} />
           <Route path="/category/createcategory" element={< CreateCategoryForm />} />
+          <Route path="transaction/createtransaction" element={<CreateTransactionForm/>}></Route>
         </Routes>
-      <UserButton />
-      <LoginButton />
-      <RegisterButton />
-      <CreateCategoryButton />
-
+        
+          <header className='header'>
+            <div className='AuthButtons'>
+              <h2>Authentication</h2>
+              <LoginButton />
+              <RegisterButton />  
+              <UserButton />
+            </div>
+          </header>
+          <div className='CreationButtons'>
+            <h2>Creation</h2>
+              <CreateCategoryButton />
+              <CreateTransactionButton />
+          </div>
+        </main>
     </>
   );
 }

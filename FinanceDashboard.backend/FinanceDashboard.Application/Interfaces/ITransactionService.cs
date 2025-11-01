@@ -7,5 +7,6 @@ namespace FinanceDashboard.Application.Interfaces
     public interface ITransactionService
     {
         Task<CreateTransactionResultDTO> CreateTransactionAsync(CreateTransactionDTO createTransactionDTO);
+        Task<TransactionDTO?> GetTransactionByGuidAsync(Guid transactionGuid);
     }
 }
