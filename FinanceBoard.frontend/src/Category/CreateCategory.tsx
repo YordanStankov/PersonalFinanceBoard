@@ -1,11 +1,15 @@
 import type { CreateCategory } from '../Models/DTOs/Category/CreateCategory';
+import  VariabeNames from '../Constants'
 
+const variables: VariabeNames = new VariabeNames();
 const categoryData: CreateCategory = {userID: "", name: ""};
 
 async function CreateCategoryRequest(event: FormData){
-    const user = localStorage.getItem('User');
+    const user = localStorage.getItem(`${variables.user}`);
+    const token = localStorage.getItem(`${variables.token}`);
     var userId:string = " ";
     var name:string = " ";
+    console.log(token + " " + user);
     if(user!== null){
         const userJson = JSON.parse(user);
         userId = userJson.id;

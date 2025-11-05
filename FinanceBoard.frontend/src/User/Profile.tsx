@@ -13,17 +13,18 @@ import { jwtDecode } from 'jwt-decode';
     console.log(jsonUser);
     id = jsonUser.id;
 
-    const token = localStorage.getItem(`token`) ?? "jwtToken";
+    const token = localStorage.getItem(`Token`) ?? "jwtToken";
     const credentials = jwtDecode(token)
     console.log(credentials);
     
 
    var response =  await fetch("https://localhost:7010/api/User/LoadProfile", {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json',
+        headers: { 'Authorization' : `Bearer ${token}`,
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'},
         body : JSON.stringify(id)})
-        
+        console.log(response.status + " " + response)
     const data = await response.json();
     if(response.ok){
         console.log(data)

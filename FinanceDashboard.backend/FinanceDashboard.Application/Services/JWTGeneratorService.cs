@@ -4,8 +4,6 @@ using FinanceDashboard.Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
-using Microsoft.IdentityModel.JsonWebTokens;
 using System.Text;
 
 namespace FinanceDashboard.Application.Services

@@ -1,6 +1,9 @@
 import type { LoginDTO } from "../Models/DTOs/Authentication/LoginDTO"
 import type {User} from "../Models/User"
 import './Css/Login.css'
+import  VariabeNames from '../Constants'
+
+const variables: VariabeNames = new VariabeNames();
 
 const loginData: LoginDTO = {email: "", password: ""};   
 const currUser : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};  
@@ -39,9 +42,10 @@ async function submitHandler( event : FormData){
                 currUser.JWT = data.token;
                 alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
                 localStorage.clear();
-                localStorage.setItem(`token`, currUser.JWT ?? '');
-                console.log(localStorage.getItem(`token`) ?? "jwtMissing")
-                localStorage.setItem('User', JSON.stringify(currUser));
+                localStorage.setItem(`${variables.token}`, currUser.JWT ?? '');
+                console.log(localStorage.getItem(`${variables.token}`) ?? "jwtMissing")
+                localStorage.setItem(`${variables.user}`, JSON.stringify(currUser));
+                console.log(localStorage.getItem(`${variables.user}`) ?? "missing")
                 } catch(error){
                     alert("An error occured while proccesing your request:" + (error as Error).message);
                 }

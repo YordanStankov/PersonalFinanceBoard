@@ -1,5 +1,6 @@
 ﻿using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinanceDashboard.Api.Controllers
@@ -52,6 +53,7 @@ namespace FinanceDashboard.Api.Controllers
             }
             return BadRequest(result);
         }
+
         [HttpPost("LoadProfile")]
         public async Task<IActionResult> LoadProfile([FromBody] object userId)
         {

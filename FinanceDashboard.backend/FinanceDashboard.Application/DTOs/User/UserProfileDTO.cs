@@ -1,6 +1,5 @@
 ﻿
 using FinanceDashboard.Application.DTOs.Category;
-using FinanceDashboard.Application.DTOs.Transaction;
 
 namespace FinanceDashboard.Application.DTOs.User
 {
