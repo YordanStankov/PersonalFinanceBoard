@@ -61,6 +61,7 @@ namespace FinanceDashboard.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
@@ -293,7 +294,8 @@ namespace FinanceDashboard.Infrastructure.Migrations
                     b.HasOne("FinanceDashboard.Domain.Models.User", "User")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 

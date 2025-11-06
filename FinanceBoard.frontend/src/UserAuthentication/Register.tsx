@@ -1,6 +1,9 @@
 import './Css/Register.css'
 import type { RegisterDTO } from "../Models/DTOs/Authentication/RegisterDTO"
 import type { User } from "../Models/User";
+import  VariabeNames from '../Constants'
+
+const variables: VariabeNames = new VariabeNames();
 
 const registerData: RegisterDTO = {userName: "", email: "", password: ""};
 const user : User = {id: "", userName: "", email: "", JWT: "", Transactions: [], Categories: []};
@@ -66,9 +69,9 @@ async function RegisterRequest(event: FormData){
             user.userName = data.userName;
             user.email = data.email;
             user.JWT = data.token;
-            localStorage.setItem(`token`, user.JWT ?? '');
-            console.log(localStorage.getItem(`token`) ?? "jwtMissing")
-            localStorage.SetItem('User', user ?? 'User not available');
+            localStorage.setItem(`${variables.token}`, user.JWT ?? '');
+            console.log(localStorage.getItem(`${variables.token}`) ?? "jwtMissing")
+            localStorage.SetItem(`${variables.user}`, user ?? 'User not available');
 
         }
     }

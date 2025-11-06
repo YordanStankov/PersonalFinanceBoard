@@ -3,17 +3,20 @@ import type { CategoryList } from '../Models/DTOs/Category/CategoryList';
 import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
 import type { UserProfileDTO } from '../Models/DTOs/User/UserProfileDTO';
 import { jwtDecode } from 'jwt-decode';
+import  VariabeNames from '../Constants'
+
+const variables: VariabeNames = new VariabeNames();
 
  async function GetUserProfile( ) : Promise<UserProfileDTO | void>{
     var profile : UserProfileDTO = { userName: ""};
     var id : string = "";
 
-    const user = localStorage.getItem(`User`);
+    const user = localStorage.getItem(`${variables.user}`);
     const jsonUser = JSON.parse(user ?? "user is null");
     console.log(jsonUser);
     id = jsonUser.id;
 
-    const token = localStorage.getItem(`Token`) ?? "jwtToken";
+    const token = localStorage.getItem(`${variables.token}`) ?? "jwtToken";
     const credentials = jwtDecode(token)
     console.log(credentials);
     

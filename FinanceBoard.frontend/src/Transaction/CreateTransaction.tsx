@@ -1,5 +1,7 @@
 import type { CreateTransactionDTO } from "../Models/DTOs/Transaction/CreateTransactionDTO";
+import  VariabeNames from '../Constants'
 
+const variables: VariabeNames = new VariabeNames();
 
 const transactionData : CreateTransactionDTO = {
     amount: 0,
@@ -9,8 +11,8 @@ const transactionData : CreateTransactionDTO = {
     userId: ""
 }   
 async function SendCreationRequest(event : FormData) {
-    const userJson = JSON.parse(localStorage.getItem('User') ?? "{}");
-    const userId:string = userJson.id ?? "";
+    const userJson = JSON.parse(localStorage.getItem(`${variables.user}`) ?? "{}");
+    const userId:string = userJson.id ?? alert("UserId not present when creating requst.");
 
     var amount: number;
     var date: Date; 

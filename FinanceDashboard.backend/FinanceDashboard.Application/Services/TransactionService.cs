@@ -18,36 +18,42 @@ namespace FinanceDashboard.Application.Services
         public async Task<CreateTransactionResultDTO> CreateTransactionAsync(CreateTransactionDTO dto)
         {
             CreateTransactionResultDTO resultDTO = new CreateTransactionResultDTO();
-
-            bool check = await _transactionsRepository
-                .CheckForTransactionAsync(dto.UserId!, dto.Date);
-
-            Guid categoryGuid = await _categoryRepository
-                .GetCategoryGuidAsync(dto.UserId!, dto.CategoryName);
-
-            if (check == false && categoryGuid != Guid.Empty)
-            {
-                Transaction transaction = new Transaction
-                {
-                    Guid = Guid.NewGuid(),
-                    Amount = dto.Amount,
-                    Date = dto.Date,
-                    CategoryGuid = categoryGuid,
-                    Description = dto.Description,
-                    UserId = dto.UserId!
-                };
-                resultDTO.TransactionGuid = await _transactionsRepository.CreateTransactionAsync(transaction);
-                resultDTO.Success = true;
-            }
-
-            else
+            if(dto.UserId == null)
             {
                 resultDTO.Success = false;
-                if(check == true)
-                    resultDTO.ErrorMessage = "Transaction already exists at this exact time";
+                resultDTO.ErrorMessage = "UserId is null when creating transaction";
+            }
+            else
+            {
+                bool check = await _transactionsRepository
+                    .CheckForTransactionAsync(dto.UserId, dto.Date);
 
-                else if(categoryGuid == Guid.Empty)
-                    resultDTO.ErrorMessage = "Category does not exist";
+                Guid categoryGuid = await _categoryRepository
+                    .GetCategoryGuidAsync(dto.UserId, dto.CategoryName);
+
+                if (check == false && categoryGuid != Guid.Empty)
+                {
+                    Transaction transaction = new Transaction
+                    {
+                        Guid = Guid.NewGuid(),
+                        Amount = dto.Amount,
+                        Date = dto.Date,
+                        CategoryGuid = categoryGuid,
+                        Description = dto.Description,
+                        UserId = dto.UserId
+                    };
+                    resultDTO.TransactionGuid = await _transactionsRepository.CreateTransactionAsync(transaction);
+                    resultDTO.Success = true;
+                }
+                else
+                {
+                    resultDTO.Success = false;
+                    if (check == true)
+                        resultDTO.ErrorMessage = "Transaction already exists at this exact time";
+
+                    else if (categoryGuid == Guid.Empty)
+                        resultDTO.ErrorMessage = "Category does not exist";
+                }
             }
             return resultDTO;
         }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FinanceDashboard.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250928184902_Initial")]
-    partial class Initial
+    [Migration("20251106084831_NewStandard")]
+    partial class NewStandard
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,6 +64,7 @@ namespace FinanceDashboard.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
@@ -288,7 +289,7 @@ namespace FinanceDashboard.Infrastructure.Migrations
             modelBuilder.Entity("FinanceDashboard.Domain.Models.Transaction", b =>
                 {
                     b.HasOne("FinanceDashboard.Domain.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("Transactions")
                         .HasForeignKey("CategoryGuid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -296,7 +297,8 @@ namespace FinanceDashboard.Infrastructure.Migrations
                     b.HasOne("FinanceDashboard.Domain.Models.User", "User")
                         .WithMany("Transactions")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
 
@@ -352,6 +354,11 @@ namespace FinanceDashboard.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FinanceDashboard.Domain.Models.Category", b =>
+                {
+                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("FinanceDashboard.Domain.Models.User", b =>
