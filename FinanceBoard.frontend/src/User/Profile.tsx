@@ -1,9 +1,10 @@
 import React from 'react';
 import type { CategoryList } from '../Models/DTOs/Category/CategoryList';
-import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
 import type { UserProfileDTO } from '../Models/DTOs/User/UserProfileDTO';
 import { jwtDecode } from 'jwt-decode';
-import  VariabeNames from '../Constants'
+import  VariabeNames from '../Constants';
+import '../User/Css/Profile.css'
+import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
 
 const variables: VariabeNames = new VariabeNames();
 
@@ -36,6 +37,7 @@ const variables: VariabeNames = new VariabeNames();
         profile.AverageDailySpending = data.averageDailySpending;
         profile.MonthtlySpending = data.monthlySpending;
         profile.Categories = data.categories;
+        
         console.log(profile)
     }
     else if (!response.ok){
@@ -58,6 +60,45 @@ function SetProfile(data : React.Dispatch<React.SetStateAction<UserProfileDTO>>)
     }, []
     );
 };
+function returnNum(data : TransactionList[]):number{
+    try{
+        return data.length;
+    }
+    catch{
+        return 0;
+    }
+}
+function DisplayCategories(data : CategoryList){
+     console.log("Entry in DisplayUserCategories:", data);
+            const numberOfTransaction : number = returnNum(data.transactionListDTOs)
+            if(numberOfTransaction > 0){
+                 return <>
+                  <div className='card-for-category'>
+                  <h2>Category: {data.name} </h2>
+                  <h2 className='number-of-transactions'>Transactions: {numberOfTransaction}</h2>
+                   {data.transactionListDTOs?.map((transaction : TransactionList) => {
+                    return <>
+                    <div className='card-for-transaction'>
+                        <p>Amount: {transaction.amount}</p>
+                        <p>Guid: {transaction.guid}</p>
+                        <p>Description: {transaction.description}</p>
+                      </div>
+                   </>
+               })}
+         </div>
+      </>
+   }
+
+    else{
+        return <>
+        <div className='card-for-category'>
+           <h2>Category: {data.name} </h2>
+           <h2 className='number-of-transactions'>Transactions: {numberOfTransaction}</h2>
+           </div>
+        </>
+   }
+               
+}
 
 function Profile() {
     const [profile, setProfile] =  React.useState<UserProfileDTO>({userName: ""});
@@ -66,31 +107,18 @@ function Profile() {
     return (
         <>
             <div className="profile-container">
-            <h2>UserName : {profile.userName}</h2>
-            <h2>Montlhy spending: {profile.MonthtlySpending}</h2>
-            <h2>Monthly income: {profile.MonthlyIncome}</h2>
-            <h2>Avergae daily spending: {profile.AverageDailySpending}</h2>
-        </div>
+                <h2>UserName : {profile.userName}</h2>
+                <h2>Montlhy spending: {profile.MonthtlySpending}</h2>
+                <h2>Monthly income: {profile.MonthlyIncome}</h2>
+                <h2>Avergae daily spending: {profile.AverageDailySpending}</h2>
+            </div>
 
         <div className='categories-container'>
-            <h2>Categories and their transactions: </h2>
-            {profile.Categories?.map((entry : CategoryList) => {
-                console.log("Entry in DisplayUserCategories:", entry);
-                return <div key={entry.name}>
-                       <h2>{entry.name} </h2>
-                       <div className="TransactionsContainer">
-                       {entry.transactionList?.map((transaction : TransactionList) => {
-                        console.log("Transaction in DisplayUserCategories:", transaction);
-                        return <div key={transaction.guid} className={entry.guid.toString()}>
-                            <h3>Amount: {transaction.amount}</h3>
-                            <h3>Category: {transaction.categoryName}</h3>
-                            <h3>Description: {transaction.description}</h3>
-                            <h3>Time of transaction: {new Date(transaction.timeOfTransaction).toLocaleString()}</h3>
-                            <h3>Id: {transaction.guid}</h3>
-                        </div>
-                       })}
-                       </div>
-               </div>
+            <h2 className='header-of-categories'>Categories and their transactions: </h2>
+            {profile.Categories?.map((data : CategoryList) => {
+               return <>
+                    {DisplayCategories(data)}
+               </>
             })}
         </div>
 </>

@@ -50,28 +50,7 @@ async function submitHandler( event : FormData){
                     alert("An error occured while proccesing your request:" + (error as Error).message);
                 }
             }
-            // .then(response => {
-            //     if (!response.ok) {
-            //         throw new Error('Network response was not ok');
-            //     }
-            //     else if (response.ok){
-            //         alert("Login successful!");
-            //     }
-            //     return response.json();
-            // }).then( data=> {
-            //     currUser.id = data.userId;
-            //     currUser.userName = data.userName;
-            //     currUser.email = data.email;
-            //     currUser.JWT = data.token;
-            //     console.log("Fetched user:", currUser);
-            //     alert(`Logged in as: ${currUser.userName}, Email: ${currUser.email}`);
-            //     localStorage.setItem('token', currUser.JWT ?? '');
-            //     localStorage.setItem('User', JSON.stringify(currUser));
-            // }).catch(error => {
-            //     console.error('There was a problem with the fetch operation:', error);
-            //     alert("Login failed. Please check your credentials and try again. error: " + error.message);
-            // })
-        }
+           }
         else {
             alert("Invalid input. Please enter valid email and password.");
         }
