@@ -33,5 +33,32 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync(t => t.Guid == guid);
         }
+        public async Task<List<decimal>> GetAllTransactionAmountsWeekBeforeAsync(string userId)
+        {
+            var result = await _context.Transactions
+                .Where(t => t.UserId == userId && t.Date.Day >= (DateTime.Now.Day - 7))
+                .Select(t => t.Amount)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public async Task<List<decimal>> GetAllTransactionAmountsAsync(string userId, int oldest)
+        {
+            return await _context.Transactions
+                .Where(t => t.UserId == userId && t.Date.Month >= oldest)
+                .Select(t => t.Amount)
+                .ToListAsync();
+        }
+
+        public async Task<List<int>> GetMonthOfOldestTransactionAsync(string userId)
+        {
+            return await _context.Transactions
+                .Where(t => t.UserId == userId)
+                .OrderByDescending(t => t.Date.Day)
+                .Select(t => t.Date.Month)
+                .Take(1)
+                .ToListAsync();
+        }
     }
 }

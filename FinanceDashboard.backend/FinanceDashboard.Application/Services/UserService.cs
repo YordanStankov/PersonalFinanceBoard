@@ -4,7 +4,6 @@ using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.DTOs.User.Result;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
-using System.Security.Claims;
 
 
 namespace FinanceDashboard.Application.Services
@@ -13,11 +12,14 @@ namespace FinanceDashboard.Application.Services
     {
         private readonly IUserRepository _userRepository;
         private readonly IJWTGeneratorService _jwtGeneratorService;
-        public UserService(IUserRepository userRepository, IJWTGeneratorService jWTGeneratorService)
+        private readonly ITransactionsRepository _transactiatorsRepository;
+        public UserService(IUserRepository userRepository, 
+            IJWTGeneratorService jWTGeneratorService, 
+            ITransactionsRepository transactiatorsRepository)
         {
             _userRepository = userRepository;
             _jwtGeneratorService = jWTGeneratorService;
-
+            _transactiatorsRepository = transactiatorsRepository;
         }
 
         public async Task<UserDTO> GetUser(string userId)
@@ -50,7 +52,7 @@ namespace FinanceDashboard.Application.Services
         {
             UserProfileDTO userProfile = new UserProfileDTO();
             var user = await _userRepository.GetUserAsync(userId);
-            if (user == null)
+            if (user == null || user.Email == null)
             {
                 userProfile.IsSuccess = false;
                 userProfile.Error = "User not found.";
@@ -59,6 +61,12 @@ namespace FinanceDashboard.Application.Services
             {
                 userProfile.IsSuccess = true;
                 userProfile.UserName = user.UserName;
+                userProfile.AverageDailySpendingPastWeek = 
+                    await DailySpendingCalculator(userId);
+
+                userProfile.MonthlySpendingAverage = 
+                    await MonthlySpendingCalculator(userId);
+
                 userProfile.Categories = user.Categories.Select(c => new CategoryListDTO
                 {
                     Guid = c.Guid,
@@ -128,6 +136,34 @@ namespace FinanceDashboard.Application.Services
                 result.Error = output;
             }
             return result;
+        }
+
+        private async Task<decimal> MonthlySpendingCalculator(string userId)
+        {
+            List<int> oldest = await _transactiatorsRepository
+                .GetMonthOfOldestTransactionAsync(userId);
+
+            List<decimal> transactions = await _transactiatorsRepository
+                .GetAllTransactionAmountsAsync(userId, oldest[0]);
+
+            int differential = DateTime.Now.Month - oldest[0];
+            decimal monthlyAverage = 0;
+
+            if (oldest[0] > 0 && differential != 0)
+                    monthlyAverage = transactions.Sum() / differential;
+            else
+                 monthlyAverage = transactions.Sum();
+
+            return Math.Round(monthlyAverage, 2);
+            
+        }
+        private async Task<decimal> DailySpendingCalculator(string userId)
+        {
+            List<decimal> monthlyTransactions = await _transactiatorsRepository
+                .GetAllTransactionAmountsWeekBeforeAsync(userId);
+            decimal result = monthlyTransactions.Sum() / 7;
+
+            return Math.Round(result);
         }
     }
 }

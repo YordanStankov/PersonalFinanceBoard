@@ -5,6 +5,8 @@ import LoginForm from './UserAuthentication/Login.tsx';
 import RegisterForm from './UserAuthentication/Register.tsx';
 import CreateCategoryForm from './Category/CreateCategory.tsx';
 import CreateTransactionForm from './Transaction/CreateTransaction.tsx';
+import CategoryFocus from './Category/CategoryFocus.tsx';
+
 
 function CreateCategoryButton(){
     const navigate = useNavigate();
@@ -46,6 +48,7 @@ function App() {
     <>
     <main className='main'>
         <Routes>
+          <Route path="/category/categoryfocus" element={<CategoryFocus/>}/>
           <Route path="/user/profile" element={<Profile />} />
           <Route path="/userauthentication/register" element={< RegisterForm />} />
           <Route path="/userauthentication/login" element={< LoginForm />} />

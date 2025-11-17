@@ -15,17 +15,6 @@ namespace FinanceDashboard.Api.Controllers
             _userService = userService;
         }
 
-        //[HttpGet("{userId}")]
-        //public async Task<IActionResult> Get(string userId)
-        //{
-        //    var user = await _userService.GetUser(userId);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(user);
-        //}
-
         [HttpGet]
         public IActionResult Get()
         {

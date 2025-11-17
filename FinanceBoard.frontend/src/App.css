@@ -1,5 +1,11 @@
 #root {
+  display : flex;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+}
+.main .header{
+  display: flex;
+  justify-content: baseline;
+
 }

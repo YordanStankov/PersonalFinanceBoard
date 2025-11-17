@@ -16,7 +16,7 @@ namespace FinanceDashboard.Application.Services
             _categoryRepository = categoryRepository;
         }
         public async Task<CreateTransactionResultDTO> CreateTransactionAsync(CreateTransactionDTO dto)
-        {
+            {
             CreateTransactionResultDTO resultDTO = new CreateTransactionResultDTO();
             if(dto.UserId == null)
             {
