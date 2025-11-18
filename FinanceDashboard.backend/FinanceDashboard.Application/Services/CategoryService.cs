@@ -18,14 +18,14 @@ namespace FinanceDashboard.Application.Services
             _userRepository = userRepository;
         }
 
-        public async Task<CreateCategoryResult> CreateCategoryAsync(CreateCategoryDTO dto)
+        public async Task<CreateCategoryResult> CreateAsync(CreateCategoryDTO dto)
         {
             CreateCategoryResult result = new CreateCategoryResult();
             var category = await _categoryRepository
-                .GetCategoryAsync(dto.UserId, dto.Name);
+                .GetAsync(dto.UserId, dto.Name);
 
             var check = await _userRepository
-                .CheckUserExistenceAsync(dto.UserId);
+                .CheckExistenceAsync(dto.UserId);
 
             if (category == null && check == true)
             {
@@ -35,7 +35,7 @@ namespace FinanceDashboard.Application.Services
                     Name = dto.Name,
                     UserId = dto.UserId
                 };
-                result.Guid = await _categoryRepository.CreateCategoryAsync(newCategory);
+                result.Guid = await _categoryRepository.CreateAsync(newCategory);
                 result.IsSuccess = true;
             }
             else if (category != null)
@@ -51,10 +51,10 @@ namespace FinanceDashboard.Application.Services
                 return result;
         }
 
-        public async Task<List<CategoryListDTO>> GetAllCategoriesOfOneUserAsync(string userId)
+        public async Task<List<CategoryListDTO>> GetAllOfOneUserAsync(string userId)
         {
             var categories = await _categoryRepository
-                .GetAllCategoriesOfUserAsync(userId);
+                .GetAllOfUserAsync(userId);
             if (categories != null)
             {
                 return categories.Select(c => new CategoryListDTO

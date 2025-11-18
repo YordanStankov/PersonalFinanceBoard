@@ -23,7 +23,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("CreateTransaction")]
         public async Task<IActionResult> CreateTransaction([FromBody] CreateTransactionDTO dto)
         {
-            var result = await _transactionService.CreateTransactionAsync(dto);
+            var result = await _transactionService.CreateAsync(dto);
             if(result.Success)
                 return Ok(result);
             else
@@ -32,7 +32,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("GetTransactionById")]
         public async Task<IActionResult> GetTransactionById([FromBody] Guid transactionGuid)
         {
-            var result = await _transactionService.GetTransactionByGuidAsync(transactionGuid);
+            var result = await _transactionService.GetByGuidAsync(transactionGuid);
             if (result != null)
                 return Ok(result);
             else

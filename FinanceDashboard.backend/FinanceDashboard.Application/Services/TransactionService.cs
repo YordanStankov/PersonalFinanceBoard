@@ -15,7 +15,7 @@ namespace FinanceDashboard.Application.Services
             _transactionsRepository = transactionsRepository;
             _categoryRepository = categoryRepository;
         }
-        public async Task<CreateTransactionResultDTO> CreateTransactionAsync(CreateTransactionDTO dto)
+        public async Task<CreateTransactionResultDTO> CreateAsync(CreateTransactionDTO dto)
             {
             CreateTransactionResultDTO resultDTO = new CreateTransactionResultDTO();
             if(dto.UserId == null)
@@ -26,10 +26,10 @@ namespace FinanceDashboard.Application.Services
             else
             {
                 bool check = await _transactionsRepository
-                    .CheckForTransactionAsync(dto.UserId, dto.Date);
+                    .CheckForExistenceAsync(dto.UserId, dto.Date);
 
                 Guid categoryGuid = await _categoryRepository
-                    .GetCategoryGuidAsync(dto.UserId, dto.CategoryName);
+                    .GetGuidAsync(dto.UserId, dto.CategoryName);
 
                 if (check == false && categoryGuid != Guid.Empty)
                 {
@@ -42,7 +42,7 @@ namespace FinanceDashboard.Application.Services
                         Description = dto.Description,
                         UserId = dto.UserId
                     };
-                    resultDTO.TransactionGuid = await _transactionsRepository.CreateTransactionAsync(transaction);
+                    resultDTO.TransactionGuid = await _transactionsRepository.CreateAsync(transaction);
                     resultDTO.Success = true;
                 }
                 else
@@ -58,9 +58,9 @@ namespace FinanceDashboard.Application.Services
             return resultDTO;
         }
 
-        public async Task<TransactionDTO?> GetTransactionByGuidAsync(Guid transactionGuid)
+        public async Task<TransactionDTO?> GetByGuidAsync(Guid transactionGuid)
         {
-            var transaction = await _transactionsRepository.GetTransactionAsync(transactionGuid);
+            var transaction = await _transactionsRepository.GetAsync(transactionGuid);
             TransactionDTO? transactionDTO =  new TransactionDTO
             {
                 Guid = transaction.Guid,

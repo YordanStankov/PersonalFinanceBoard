@@ -6,7 +6,7 @@ namespace FinanceDashboard.Application.Interfaces
 {
     public interface ICategoryService
     {
-        Task<CreateCategoryResult> CreateCategoryAsync(CreateCategoryDTO dto);
-        Task<List<CategoryListDTO>> GetAllCategoriesOfOneUserAsync(string userId);
+        Task<CreateCategoryResult> CreateAsync(CreateCategoryDTO dto);
+        Task<List<CategoryListDTO>> GetAllOfOneUserAsync(string userId);
     }
 }

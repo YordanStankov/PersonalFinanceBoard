@@ -17,13 +17,13 @@ namespace FinanceDashboard.Infrastructure.Repositories
             _userManager = userManager;
         }
 
-        public async Task<bool> CheckUserExistenceAsync(string userId)
+        public async Task<bool> CheckExistenceAsync(string userId)
         {
             return await _context.Users
                 .AnyAsync(u => u.Id == userId);
         }
 
-        public async Task<User> GetUserAsync(string userId)
+        public async Task<User> GetAsync(string userId)
         {
             return await _context.Users
                  .Include(u => u.Categories)
@@ -31,7 +31,7 @@ namespace FinanceDashboard.Infrastructure.Repositories
                  .FirstOrDefaultAsync(u => u.Id == userId) ?? new User();
         }
 
-        public async Task<User> LoginUser(string email, string password)
+        public async Task<User> LoginAsync(string email, string password)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null && await _userManager.CheckPasswordAsync(user, password))
@@ -41,7 +41,7 @@ namespace FinanceDashboard.Infrastructure.Repositories
             return null;
         }
 
-        public async Task<string> RegisterUser(string userName, string email, string password)
+        public async Task<string> RegisterAsync(string userName, string email, string password)
         {
             if (await _context.Users.AnyAsync(u => u.UserName == userName))
             {

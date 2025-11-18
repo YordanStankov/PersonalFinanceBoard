@@ -22,9 +22,9 @@ namespace FinanceDashboard.Application.Services
             _transactiatorsRepository = transactiatorsRepository;
         }
 
-        public async Task<UserDTO> GetUser(string userId)
+        public async Task<UserDTO> GetAsync(string userId)
         {
-            var user = await _userRepository.GetUserAsync(userId);
+            var user = await _userRepository.GetAsync(userId);
             return new UserDTO
             {
                 UserId = user.Id,
@@ -48,10 +48,10 @@ namespace FinanceDashboard.Application.Services
             };
         }
 
-        public async Task<UserProfileDTO> GetUserProfileAsync(string userId)
+        public async Task<UserProfileDTO> GetProfileAsync(string userId)
         {
             UserProfileDTO userProfile = new UserProfileDTO();
-            var user = await _userRepository.GetUserAsync(userId);
+            var user = await _userRepository.GetAsync(userId);
             if (user == null || user.Email == null)
             {
                 userProfile.IsSuccess = false;
@@ -84,12 +84,12 @@ namespace FinanceDashboard.Application.Services
             return userProfile;
         }
 
-        public async Task<LoginResultDTO> LoginUser(LoginDTO loginDto)
+        public async Task<LoginResultDTO> LoginAsync(LoginDTO loginDto)
         {
             LoginResultDTO result = new LoginResultDTO();
             try
             {
-                var user = await _userRepository.LoginUser(loginDto.Email, loginDto.Password);
+                var user = await _userRepository.LoginAsync(loginDto.Email, loginDto.Password);
                 if (user != null)
                 {
                     result.IsSuccessful = true;
@@ -115,14 +115,14 @@ namespace FinanceDashboard.Application.Services
             return result;
         }
 
-        public async Task<RegisterResultDTO> RegisterUserAsync(RegisterDTO registerDto)
+        public async Task<RegisterResultDTO> RegisterAsync(RegisterDTO registerDto)
         {
             var result = new RegisterResultDTO();
             
-                string output = await _userRepository.RegisterUser(registerDto.UserName, registerDto.Email, registerDto.Password);
+                string output = await _userRepository.RegisterAsync(registerDto.UserName, registerDto.Email, registerDto.Password);
             if (!output.StartsWith("Error"))
             {
-                var user = await _userRepository.GetUserAsync(output);
+                var user = await _userRepository.GetAsync(output);
                 result.UserId = user.Id;
                 result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
                 result.UserName = user.UserName;
@@ -141,10 +141,10 @@ namespace FinanceDashboard.Application.Services
         private async Task<decimal> MonthlySpendingCalculator(string userId)
         {
             List<int> oldest = await _transactiatorsRepository
-                .GetMonthOfOldestTransactionAsync(userId);
+                .GetMonthOfOldestAsync(userId);
 
             List<decimal> transactions = await _transactiatorsRepository
-                .GetAllTransactionAmountsAsync(userId, oldest[0]);
+                .GetAllAmountsAsync(userId, oldest[0]);
 
             int differential = DateTime.Now.Month - oldest[0];
             decimal monthlyAverage = 0;
@@ -159,11 +159,21 @@ namespace FinanceDashboard.Application.Services
         }
         private async Task<decimal> DailySpendingCalculator(string userId)
         {
-            List<decimal> monthlyTransactions = await _transactiatorsRepository
-                .GetAllTransactionAmountsWeekBeforeAsync(userId);
-            decimal result = monthlyTransactions.Sum() / 7;
+            List<int> oldest = await _transactiatorsRepository
+                .GetDayOfOldestAMonthBackAsync(userId);
 
-            return Math.Round(result);
+            List<decimal> monthlyTransactions = await _transactiatorsRepository
+                .GetAmountsAMonthBackAsync(userId);
+
+            decimal differential = 30 - oldest[0];
+            decimal dailyAverage = 0;
+
+            if (oldest[0] == 0 || differential <= 0)
+                dailyAverage = monthlyTransactions.Sum();
+            else 
+                dailyAverage = monthlyTransactions.Sum() / differential;
+
+                return Math.Round(dailyAverage);
         }
     }
 }

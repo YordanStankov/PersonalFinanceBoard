@@ -13,14 +13,14 @@ namespace FinanceDashboard.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Guid> CreateCategoryAsync(Category category)
+        public async Task<Guid> CreateAsync(Category category)
         {
                 await _context.Categories.AddAsync(category);
                 await _context.SaveChangesAsync();
                 return category.Guid;
         }
 
-        public async Task<List<Category>> GetAllCategoriesOfUserAsync(string userId)
+        public async Task<List<Category>> GetAllOfUserAsync(string userId)
         {
             return await _context.Categories
                 .Include(c => c.Transactions)
@@ -29,13 +29,13 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Category> GetCategoryAsync(string userId, string name)
+        public async Task<Category> GetAsync(string userId, string name)
         {
             return await _context.Categories
                 .FirstOrDefaultAsync(c => c.Name == name && c.UserId == userId);
         }
 
-        public async Task<Guid> GetCategoryGuidAsync(string userId, string categoryName)
+        public async Task<Guid> GetGuidAsync(string userId, string categoryName)
         {
             Guid category = await _context.Categories
                .Where(c => c.UserId == userId && c.Name == categoryName)

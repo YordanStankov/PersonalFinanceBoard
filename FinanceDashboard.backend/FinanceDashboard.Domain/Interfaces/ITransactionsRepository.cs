@@ -4,11 +4,12 @@ namespace FinanceDashboard.Domain.Interfaces
 {
     public interface ITransactionsRepository
     {
-        Task<bool> CheckForTransactionAsync(string userId, DateTime transactionDate);
-        Task<Guid> CreateTransactionAsync(Transaction transaction);
-        Task<Transaction> GetTransactionAsync(Guid guid);
-        Task<List<decimal>> GetAllTransactionAmountsWeekBeforeAsync(string userId); 
-        Task<List<decimal>> GetAllTransactionAmountsAsync(string userId, int oldest);
-        Task<List<int>> GetMonthOfOldestTransactionAsync(string userId);
+        Task<bool> CheckForExistenceAsync(string userId, DateTime transactionDate);
+        Task<Guid> CreateAsync(Transaction transaction);
+        Task<Transaction> GetAsync(Guid guid);
+        Task<List<int>> GetDayOfOldestAMonthBackAsync(string userId);
+        Task<List<decimal>> GetAmountsAMonthBackAsync(string userId);
+        Task<List<decimal>> GetAllAmountsAsync(string userId, int oldest);
+        Task<List<int>> GetMonthOfOldestAsync(string userId);
     }
 }

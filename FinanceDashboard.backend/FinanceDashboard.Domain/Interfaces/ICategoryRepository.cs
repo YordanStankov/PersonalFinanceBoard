@@ -5,9 +5,9 @@ namespace FinanceDashboard.Domain.Interfaces
 {
     public interface ICategoryRepository
     {
-        Task<Guid> CreateCategoryAsync(Category category);
-        Task<List<Category>> GetAllCategoriesOfUserAsync(string userId);
-        Task<Guid> GetCategoryGuidAsync(string userId, string categoryName);
-        Task<Category> GetCategoryAsync(string userId, string name);
+        Task<Guid> CreateAsync(Category category);
+        Task<List<Category>> GetAllOfUserAsync(string userId);
+        Task<Guid> GetGuidAsync(string userId, string categoryName);
+        Task<Category> GetAsync(string userId, string name);
     }
 }

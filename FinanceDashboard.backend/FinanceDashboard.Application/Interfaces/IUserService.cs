@@ -6,9 +6,9 @@ namespace FinanceDashboard.Application.Interfaces
 {
     public interface IUserService
     {
-        Task<UserDTO> GetUser(string userId);
-        Task<RegisterResultDTO> RegisterUserAsync(RegisterDTO registerDto);
-        Task<LoginResultDTO> LoginUser(LoginDTO loginDto);
-        Task<UserProfileDTO> GetUserProfileAsync(string userId);
+        Task<UserDTO> GetAsync(string userId);
+        Task<RegisterResultDTO> RegisterAsync(RegisterDTO registerDto);
+        Task<LoginResultDTO> LoginAsync(LoginDTO loginDto);
+        Task<UserProfileDTO> GetProfileAsync(string userId);
     }
 }

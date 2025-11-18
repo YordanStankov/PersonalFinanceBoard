@@ -23,7 +23,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("CreateCategory")]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDTO dto)
         {
-            var result = await _categoryService.CreateCategoryAsync(dto);
+            var result = await _categoryService.CreateAsync(dto);
             if (result.IsSuccess)
                 return Ok(result);
             else
@@ -33,7 +33,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("List")]
         public async Task<IActionResult> ListCategoriesOfUserAsync([FromBody]string userId)
         {
-            var categories = await _categoryService.GetAllCategoriesOfOneUserAsync(userId);
+            var categories = await _categoryService.GetAllOfOneUserAsync(userId);
             return Ok(categories);
         }
     }
