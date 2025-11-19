@@ -61,11 +61,14 @@ namespace FinanceDashboard.Application.Services
             {
                 userProfile.IsSuccess = true;
                 userProfile.UserName = user.UserName;
-                userProfile.AverageDailySpendingPastWeek = 
-                    await DailySpendingCalculator(userId);
+                if (user.Transactions.Count > 0)
+                {
+                    userProfile.AverageDailySpendingPastWeek =
+                        await DailySpendingCalculator(userId);
 
-                userProfile.MonthlySpendingAverage = 
-                    await MonthlySpendingCalculator(userId);
+                    userProfile.MonthlySpendingAverage =
+                        await MonthlySpendingCalculator(userId);
+                }
 
                 userProfile.Categories = user.Categories.Select(c => new CategoryListDTO
                 {
@@ -140,40 +143,60 @@ namespace FinanceDashboard.Application.Services
 
         private async Task<decimal> MonthlySpendingCalculator(string userId)
         {
-            List<int> oldest = await _transactiatorsRepository
-                .GetMonthOfOldestAsync(userId);
+            DateTime current = DateTime.Now;
+            decimal averageMonthly = 0;
+
+            List<DateTime> oldest = await _transactiatorsRepository
+                .GetDateOfOldestAsync(userId);
 
             List<decimal> transactions = await _transactiatorsRepository
-                .GetAllAmountsAsync(userId, oldest[0]);
+                .GetAllAmountsAsync(userId);
 
-            int differential = DateTime.Now.Month - oldest[0];
-            decimal monthlyAverage = 0;
-
-            if (oldest[0] > 0 && differential != 0)
-                    monthlyAverage = transactions.Sum() / differential;
+            int yearsOnApp = current.Year - oldest[0].Year;
+            int monthsOnApp = 0;
+            if (oldest != null)
+            {
+                if (yearsOnApp == 0)
+                    monthsOnApp = current.Month - oldest[0].Month;
+                else 
+                    monthsOnApp = (yearsOnApp) * 12 + oldest[0].Month;
+            }
+            if (monthsOnApp != 0)
+                averageMonthly = transactions.Sum() / monthsOnApp;
             else
-                 monthlyAverage = transactions.Sum();
-
-            return Math.Round(monthlyAverage, 2);
+                averageMonthly = transactions.Sum();
+                return Math.Round(averageMonthly, 2);
             
         }
         private async Task<decimal> DailySpendingCalculator(string userId)
         {
-            List<int> oldest = await _transactiatorsRepository
-                .GetDayOfOldestAMonthBackAsync(userId);
+            DateTime current = DateTime.Now;
+            decimal averageDaysInMonth = 30.85m;
+            decimal spending = 0;
+            List<DateTime> oldest = await _transactiatorsRepository
+                .GetDateOfOldestAsync(userId);
 
-            List<decimal> monthlyTransactions = await _transactiatorsRepository
-                .GetAmountsAMonthBackAsync(userId);
+            List<decimal> transactions = await _transactiatorsRepository
+                .GetAllAmountsAsync(userId);
 
-            decimal differential = 30 - oldest[0];
-            decimal dailyAverage = 0;
+            int yearsOnApp = current.Year - oldest[0].Year;
+            int monthsOnApp = 0;
+            decimal sum = transactions.Sum();
 
-            if (oldest[0] == 0 || differential <= 0)
-                dailyAverage = monthlyTransactions.Sum();
-            else 
-                dailyAverage = monthlyTransactions.Sum() / differential;
+            if (oldest != null)
+            {
+                if (yearsOnApp == 0)
+                    monthsOnApp = current.Month - oldest[0].Month;
+                else
+                    monthsOnApp = (yearsOnApp) * 12 + current.Month;
+            }
 
-                return Math.Round(dailyAverage);
+            if (monthsOnApp != 0)
+                spending = sum / (monthsOnApp * averageDaysInMonth);
+            else
+                spending = sum / (current.Day - oldest[0].Day);
+
+                return Math.Round(spending, 2);
         }
     }
 }

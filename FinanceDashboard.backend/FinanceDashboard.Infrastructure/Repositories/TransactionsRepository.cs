@@ -33,40 +33,23 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync(t => t.Guid == guid);
         }
-        public async Task<List<int>> GetDayOfOldestAMonthBackAsync(string userId)
-        {
-            return await _context.Transactions
-                .Where(t => t.UserId == userId && (t.Date.Month >= (DateTime.Now.Month - 1) || t.Date.Month == DateTime.Now.Month))
-                .OrderByDescending(t => t.Date)
-                .Select(t => t.Date.Day)
-                .Take(1)
-                .ToListAsync();
-        }
+        
 
-        public async Task<List<decimal>> GetAllAmountsAsync(string userId, int oldest)
+        public async Task<List<decimal>> GetAllAmountsAsync(string userId)
         {
             return await _context.Transactions
-                .Where(t => t.UserId == userId && t.Date.Month >= oldest)
+                .Where(t => t.UserId == userId)
                 .Select(t => t.Amount)
                 .ToListAsync();
         }
 
-        public async Task<List<int>> GetMonthOfOldestAsync(string userId)
+        public async Task<List<DateTime>> GetDateOfOldestAsync(string userId)
         {
             return await _context.Transactions
                 .Where(t => t.UserId == userId)
                 .OrderByDescending(t => t.Date.Day)
-                .Select(t => t.Date.Month)
+                .Select(t => t.Date)
                 .Take(1)
-                .ToListAsync();
-        }
-
-        public async Task<List<decimal>> GetAmountsAMonthBackAsync(string userId)
-        {
-            return await _context.Transactions
-                .AsNoTracking()
-                .Where(t => t.UserId == userId && t.Date.Day >= (DateTime.Now.Day - 30))
-                .Select(t => t.Amount)
                 .ToListAsync();
         }
     }

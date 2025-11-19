@@ -24,7 +24,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO registerDto)
         {
-            var result = await _userService.RegisterUserAsync(registerDto);
+            var result = await _userService.RegisterAsync(registerDto);
             if (result.IsSuccessful == true)
             {
                 return Ok(result);
@@ -35,7 +35,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
-            var result = await _userService.LoginUser(loginDTO);
+            var result = await _userService.LoginAsync(loginDTO);
             if(result.IsSuccessful == true)
             {
                 return Ok(result);
@@ -46,7 +46,7 @@ namespace FinanceDashboard.Api.Controllers
         [HttpPost("LoadProfile")]
         public async Task<IActionResult> LoadProfile([FromBody] object userId)
         {
-            var UserProfile = await _userService.GetUserProfileAsync(userId.ToString() ?? "userId");
+            var UserProfile = await _userService.GetProfileAsync(userId.ToString() ?? "userId");
             if (UserProfile.IsSuccess == true)
                 return Ok(UserProfile);
             else 
