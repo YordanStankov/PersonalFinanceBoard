@@ -17,10 +17,4 @@
     <ProjectReference Include="..\FinanceDashboard.Domain\FinanceDashboard.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Category\" />
-    <Folder Include="ViewModels\Transaction\" />
-    <Folder Include="ViewModels\User\" />
-  </ItemGroup>
-
 </Project>

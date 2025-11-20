@@ -2,7 +2,6 @@
 using FinanceDashboard.Domain.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
 
 namespace FinanceDashboard.Infrastructure.Repositories
 {
@@ -23,6 +22,18 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .AnyAsync(u => u.Id == userId);
         }
 
+        public async Task<bool> CheckForExistingEmailAsync(string email)
+        {
+            return await _context.Users
+                .AnyAsync(u => u.Email == email);
+        }
+
+        public async Task<bool> CheckForExistingUserNameAsync(string userName)
+        {
+            return await _context.Users
+                .AnyAsync(u => u.UserName == userName);
+        }
+
         public async Task<User> GetAsync(string userId)
         {
             return await _context.Users
@@ -31,41 +42,17 @@ namespace FinanceDashboard.Infrastructure.Repositories
                  .FirstOrDefaultAsync(u => u.Id == userId) ?? new User();
         }
 
-        public async Task<User> LoginAsync(string email, string password)
+        public async Task<User> GetByEmailAsync(string email)
         {
-            var user = await _userManager.FindByEmailAsync(email);
-            if (user != null && await _userManager.CheckPasswordAsync(user, password))
-            {
-                return user;
-            }
-            return null;
+           return await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Email == email) ?? new User();
         }
 
-        public async Task<string> RegisterAsync(string userName, string email, string password)
+        
+        public async Task SaveChangesAsync()
         {
-            if (await _context.Users.AnyAsync(u => u.UserName == userName))
-            {
-                return "Error: Username is already taken.";
-            }
-            else if (await _context.Users.AnyAsync(u => u.Email == email))
-            {
-                return $"Error: Email {email} is already registered.";
-            }
-            else
-            {
-                var user = new User
-                {
-                    UserName = userName,
-                    Email = email
-                };
-                var result = await _userManager.CreateAsync(user, password);
-                if (result.Succeeded)
-                {
-                    await _context.SaveChangesAsync();
-                    return user.Id;
-                }
-                return $"Error: User registration failed: {string.Join(", ", result.Errors.Select(e => e.Description))}";
-            }
+            await _context.SaveChangesAsync();  
         }
     }
 }

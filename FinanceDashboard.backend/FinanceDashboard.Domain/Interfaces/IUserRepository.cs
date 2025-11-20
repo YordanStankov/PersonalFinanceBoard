@@ -5,8 +5,10 @@ namespace FinanceDashboard.Domain.Interfaces
     public interface IUserRepository
     {
         Task<User> GetAsync(string userId);
-        Task<string> RegisterAsync(string userName, string email, string password);
-        Task<User> LoginAsync(string email, string password);
+        Task SaveChangesAsync();
+        Task<User> GetByEmailAsync(string email);
         Task<bool> CheckExistenceAsync(string userId);
+        Task<bool> CheckForExistingUserNameAsync(string userName);
+        Task<bool> CheckForExistingEmailAsync(string email);
     }
 }

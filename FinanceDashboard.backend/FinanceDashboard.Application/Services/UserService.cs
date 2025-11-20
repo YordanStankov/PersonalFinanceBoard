@@ -4,6 +4,8 @@ using FinanceDashboard.Application.DTOs.User;
 using FinanceDashboard.Application.DTOs.User.Result;
 using FinanceDashboard.Application.Interfaces;
 using FinanceDashboard.Domain.Interfaces;
+using FinanceDashboard.Domain.Models;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace FinanceDashboard.Application.Services
@@ -11,15 +13,18 @@ namespace FinanceDashboard.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<User> _userManager;
         private readonly IJWTGeneratorService _jwtGeneratorService;
         private readonly ITransactionsRepository _transactiatorsRepository;
         public UserService(IUserRepository userRepository, 
             IJWTGeneratorService jWTGeneratorService, 
-            ITransactionsRepository transactiatorsRepository)
+            ITransactionsRepository transactiatorsRepository,
+            UserManager<User> userManager)
         {
             _userRepository = userRepository;
             _jwtGeneratorService = jWTGeneratorService;
             _transactiatorsRepository = transactiatorsRepository;
+            _userManager = userManager;
         }
 
         public async Task<UserDTO> GetAsync(string userId)
@@ -63,7 +68,7 @@ namespace FinanceDashboard.Application.Services
                 userProfile.UserName = user.UserName;
                 if (user.Transactions.Count > 0)
                 {
-                    userProfile.AverageDailySpendingPastWeek =
+                    userProfile.AverageDailySpending =
                         await DailySpendingCalculator(userId);
 
                     userProfile.MonthlySpendingAverage =
@@ -90,10 +95,19 @@ namespace FinanceDashboard.Application.Services
         public async Task<LoginResultDTO> LoginAsync(LoginDTO loginDto)
         {
             LoginResultDTO result = new LoginResultDTO();
-            try
-            {
-                var user = await _userRepository.LoginAsync(loginDto.Email, loginDto.Password);
-                if (user != null)
+                var user = await _userRepository
+                .GetByEmailAsync(loginDto.Email);
+                if (user == null)
+                {
+                    result.IsSuccessful = false;
+                    result.Exception = "No user with this email adress!";
+                }
+                else if(await _userManager.CheckPasswordAsync(user, loginDto.Password) == false)
+                {
+                    result.IsSuccessful = false;
+                    result.Exception = "Wrong password!";
+                }
+                else 
                 {
                     result.IsSuccessful = true;
                     result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
@@ -102,19 +116,7 @@ namespace FinanceDashboard.Application.Services
                     result.Email = user.Email;
                     result.UserName = user.UserName;
                 }
-                else
-                {
-                    result.IsSuccessful = false;
-                    result.Exception = "Wrong credentials";
-                }
-            }
-            catch (Exception ex)
-            {
-                result.IsSuccessful = false;
-                result.Token = null;
-                result.Expiration = DateTime.MinValue;
-                result.Exception = ex.Message;    
-            }
+
             return result;
         }
 
@@ -122,21 +124,46 @@ namespace FinanceDashboard.Application.Services
         {
             var result = new RegisterResultDTO();
             
-                string output = await _userRepository.RegisterAsync(registerDto.UserName, registerDto.Email, registerDto.Password);
-            if (!output.StartsWith("Error"))
-            {
-                var user = await _userRepository.GetAsync(output);
-                result.UserId = user.Id;
-                result.Token = _jwtGeneratorService.GenerateToken(user.Id, user.Email, user.UserName);
-                result.UserName = user.UserName;
-                result.Email = user.Email;
-                result.IsSuccessful = true;
-            }
-
-            else if (output.StartsWith("Error:"))
+            if( await _userRepository.CheckForExistingUserNameAsync(registerDto.UserName))
             {
                 result.IsSuccessful = false;
-                result.Error = output;
+                result.Error = $"Error: UserName: {registerDto.UserName} is already taken.";
+            }
+            else if (await _userRepository.CheckForExistingEmailAsync(registerDto.Email))
+            {
+                result.IsSuccessful = false;
+                result.Error = $"Error: Email: {registerDto.Email} is already registered.";
+            }
+            else
+            {
+                    User newUser = new User
+                    {
+                        UserName = registerDto.UserName,
+                        Email = registerDto.Email
+                    };
+                var output = await _userManager.CreateAsync(newUser, registerDto.Password)
+                .ContinueWith(async task =>
+                {
+                    if (task.IsCompletedSuccessfully)
+                    {
+                        await _userRepository.SaveChangesAsync();
+                        return newUser.Id;
+                    }
+                    else
+                    {
+                        result.IsSuccessful = false;
+                        result.Error = "Error: User registration failed.";
+                        return null;
+                    }
+                });
+                    if(output.Result != null)
+                {
+                    result.UserId = output.Result;
+                    result.Token = _jwtGeneratorService.GenerateToken(output.Result, newUser.Email, newUser.UserName);
+                    result.UserName = newUser.UserName;
+                    result.Email = newUser.Email;
+                    result.IsSuccessful = true;
+                }
             }
             return result;
         }
