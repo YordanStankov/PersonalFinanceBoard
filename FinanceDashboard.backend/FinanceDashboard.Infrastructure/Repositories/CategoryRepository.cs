@@ -37,11 +37,10 @@ namespace FinanceDashboard.Infrastructure.Repositories
 
         public async Task<Guid> GetGuidAsync(string userId, string categoryName)
         {
-            Guid category = await _context.Categories
+            return await _context.Categories
                .Where(c => c.UserId == userId && c.Name == categoryName)
                .Select(c => c.Guid)
                .FirstAsync();
-            return category;
         }
     }
 }

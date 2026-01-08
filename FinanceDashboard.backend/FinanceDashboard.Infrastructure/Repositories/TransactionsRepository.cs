@@ -15,9 +15,9 @@ namespace FinanceDashboard.Infrastructure.Repositories
 
         public async Task<bool> CheckForExistenceAsync(string userId, DateTime transactionDate)
         {
-            bool check = await _context.Transactions
+            return await _context.Transactions
                .AnyAsync(t => t.UserId == userId && t.Date == transactionDate);
-            return check;
+
         }
 
         public async Task<Guid> CreateAsync(Transaction transaction)
