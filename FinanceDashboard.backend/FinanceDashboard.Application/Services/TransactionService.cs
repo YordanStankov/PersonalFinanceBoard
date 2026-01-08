@@ -72,5 +72,27 @@ namespace FinanceDashboard.Application.Services
             };
             return transactionDTO;
         }
+
+        public async Task<TransactionDeletionResultDTO> DeleteAsync(Guid guid)
+        {
+            Transaction trans = await _transactionsRepository.GetAsync(guid);
+            TransactionDeletionResultDTO result = new TransactionDeletionResultDTO();
+            if (trans is null) { 
+                result.Success = false;
+                result.ErrorMessage = "Transaction was not found";
+                }
+            else
+            {
+                bool deleted = await _transactionsRepository.DeleteAsync(trans);
+                if (!deleted)
+                    result.Success = true;
+                else
+                {
+                    result.Success = false;
+                    result.ErrorMessage = "Deletion failed!";
+                }
+            }
+            return result;
+        }
     }
 }

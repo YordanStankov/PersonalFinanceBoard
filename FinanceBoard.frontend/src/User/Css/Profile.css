@@ -1,3 +1,9 @@
 .categories-container{
-    border: 1rem white;
+    border: solid 1rem white;
+}
+.category-deletion{
+    margin: 1rem;
+}
+.category-deletion{
+    margin-right: 0.5rem;
 }

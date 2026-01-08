@@ -9,5 +9,6 @@ namespace FinanceDashboard.Domain.Interfaces
         Task<Transaction> GetAsync(Guid guid);
         Task<List<decimal>> GetAllAmountsAsync(string userId);
         Task<List<DateTime>> GetDateOfOldestAsync(string userId);
+        Task<bool> DeleteAsync(Transaction trans);
     }
 }

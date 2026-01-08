@@ -52,5 +52,12 @@ namespace FinanceDashboard.Infrastructure.Repositories
                 .Take(1)
                 .ToListAsync();
         }
+
+        public async Task<bool> DeleteAsync(Transaction trans)
+        {
+            _context.Transactions.Remove(trans);
+            await _context.SaveChangesAsync();
+            return await _context.Transactions.AnyAsync(t => t.Guid == trans.Guid);
+        }
     }
 }

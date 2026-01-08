@@ -5,6 +5,7 @@ import  VariabeNames from '../Constants';
 import '../User/Css/Profile.css'
 import type { TransactionList } from '../Models/DTOs/Transaction/TransactionList';
 import {  redirectDocument } from 'react-router-dom';
+import Popup from 'reactjs-popup';
 
 const variables: VariabeNames = new VariabeNames();
 var guid :string;
@@ -17,6 +18,42 @@ function SeeMoreButton(){
     See More
     </button>
 }
+
+async function Delete(guid : string){
+    var response = await fetch("https://localhost:7010/api/Transaction/DeleteTransaction", {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'Accept':'application/json'
+        },
+        body: JSON.stringify(guid)
+    });
+    console.log(response);
+
+    if(!response.ok)
+        alert("Error handling deletion request!")
+    else{
+        var data = await response.json();
+        console.log("Data: ", data);
+        if(data.success == 1)
+            alert("Transaction deleted succesfully!");
+        else if(data.success == 0)
+            alert(data.errorMessage);
+    }
+}
+
+const DeleteTransactionPopup = (guid : string) => {
+    return (
+        <div className='transaction-deletion'>
+            <Popup trigger={<button className='popup-activation'>Delete transaction</button>} position='right center'>
+                <div className='popup'>Are you sure?</div>
+                <button className='final-delete' onClick={() => Delete(guid)}>
+                    Delete</button>
+            </Popup>
+        </div>
+    );
+}
+
  async function GetUserProfile( ) : Promise<UserProfileDTO>{
     var profile : UserProfileDTO = { userName: ""};
     var id : string = "";
@@ -72,6 +109,7 @@ function DisplayTransactions(data : TransactionList[])
                 return <li key={transaction.guid}>
                        <h4>Guid: {transaction.guid}</h4>
                        <h4>Amount: {transaction.amount}€</h4>
+                       {DeleteTransactionPopup(transaction.guid)}
                   </li>
             })}
         </ul>
@@ -100,11 +138,12 @@ const UserInfo = () => {
             <h2>Montlhy spending: {profile.MonthlySpendingAverage}€</h2>
             <h2>Monthly income: {profile.MonthlyIncome}€</h2>
             <h2>Avergae daily spending: {profile.AverageDailySpending}€</h2>
-        </div>
+        </div> 
     </>
 }
+
 const CategoriesSection = () => {
-    return  <div className="categories-section">
+    return  <div className="categories-container">
                 <h2>Categories</h2>
                 {DisplayCategories(profile.Categories ?? [])}
             </div>

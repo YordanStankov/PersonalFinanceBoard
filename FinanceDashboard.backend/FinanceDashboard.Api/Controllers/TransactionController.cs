@@ -38,5 +38,14 @@ namespace FinanceDashboard.Api.Controllers
             else
                 return NotFound();
         }
+        [HttpPost("DeleteTransaction")]
+        public async Task<IActionResult> DeleteTransactionAsync([FromBody] Guid guid)
+        {
+            var result = await _transactionService.DeleteAsync(guid);
+            if (result != null)
+                return Ok(result);
+            else
+                return NotFound();
+        }
     }
 }
